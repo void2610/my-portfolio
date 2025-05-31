@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Card, CardBody, Button } from "@heroui/react";
 import { Github, ExternalLink } from "lucide-react";
 import { useState } from "react";
+import Image from "next/image";
 
 type Platform = 'github' | 'unityroom' | 'steam';
 
@@ -189,9 +190,11 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         <Card className={`absolute inset-0 overflow-hidden border-2 rounded-2xl backface-hidden border-transparent tilted-card-shadow`}>
           {project.imageUrl && (
             <div className="relative h-full overflow-hidden rounded-2xl">
-              <img 
+              <Image 
                 src={project.imageUrl} 
                 alt={project.title}
+                width={400}
+                height={200}
                 className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
@@ -218,9 +221,11 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         <Card className={`absolute inset-0 overflow-hidden border-2 rounded-2xl backface-hidden rotate-x-180 border-transparent flex tilted-card-shadow`}>
           {project.imageUrl && (
             <div className="absolute inset-0">
-              <img 
+              <Image 
                 src={project.imageUrl} 
                 alt={project.title}
+                width={400}
+                height={200}
                 className="w-full h-full object-cover blur-md scale-110"
               />
               <div className="absolute inset-0 bg-black/75 backdrop-blur-sm" />
