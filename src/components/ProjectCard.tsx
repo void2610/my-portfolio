@@ -8,7 +8,6 @@ import Image from "next/image";
 import { Project } from "@/data/projects";
 import { platformConfig } from "@/config/platforms";
 
-
 interface ProjectCardProps {
   project: Project;
   index: number;
@@ -18,6 +17,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
   const config = platformConfig[project.platform];
   const Icon = config.icon;
   const [isFlipped, setIsFlipped] = useState(false);
+  const [imageError, setImageError] = useState(false);
   
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('ja-JP', {
@@ -48,49 +48,55 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       >
         {/* Front Side */}
         <Card className={`absolute inset-0 overflow-hidden border-2 rounded-2xl backface-hidden border-transparent tilted-card-shadow`}>
-          {project.imageUrl && (
-            <div className="relative h-full overflow-hidden rounded-2xl">
+          <div className="relative h-full overflow-hidden rounded-2xl">
+            {project.imageUrl && !imageError ? (
               <Image 
                 src={project.imageUrl} 
                 alt={project.title}
                 width={400}
                 height={200}
                 className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                onError={() => setImageError(true)}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
-              
-              {/* Platform Icon */}
-              <div className={`absolute top-4 right-4 w-10 h-10 rounded-xl bg-gradient-to-br ${config.color} flex items-center justify-center shadow-lg backdrop-blur-sm`}>
-                <Icon className="w-5 h-5 text-white" />
-              </div>
-              
-              {/* Title Overlay */}
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <h3 className="text-xl font-bold text-white mb-2 drop-shadow-lg">
-                  {project.title}
-                </h3>
-                <p className={`text-sm font-medium text-white/90 drop-shadow-md`}>
-                  {config.name}
-                </p>
-              </div>
+            ) : (
+              <div className="w-full h-full bg-gradient-to-br from-gray-600 to-gray-800" />
+            )}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
+            
+            {/* Platform Icon */}
+            <div className={`absolute top-4 right-4 w-10 h-10 rounded-xl bg-gradient-to-br ${config.color} flex items-center justify-center shadow-lg backdrop-blur-sm`}>
+              <Icon className="w-5 h-5 text-white" />
             </div>
-          )}
+            
+            {/* Title Overlay */}
+            <div className="absolute bottom-0 left-0 right-0 p-6">
+              <h3 className="text-xl font-bold text-white mb-2 drop-shadow-lg">
+                {project.title}
+              </h3>
+              <p className={`text-sm font-medium text-white/90 drop-shadow-md`}>
+                {config.name}
+              </p>
+            </div>
+          </div>
         </Card>
 
         {/* Back Side */}
         <Card className={`absolute inset-0 overflow-hidden border-2 rounded-2xl backface-hidden rotate-x-180 border-transparent flex tilted-card-shadow`}>
-          {project.imageUrl && (
-            <div className="absolute inset-0">
+          <div className="absolute inset-0">
+            {project.imageUrl && !imageError ? (
               <Image 
                 src={project.imageUrl} 
                 alt={project.title}
                 width={400}
                 height={200}
                 className="w-full h-full object-cover blur-md scale-110"
+                onError={() => setImageError(true)}
               />
-              <div className="absolute inset-0 bg-black/75 backdrop-blur-sm" />
-            </div>
-          )}
+            ) : (
+              <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-900" />
+            )}
+            <div className="absolute inset-0 bg-black/75 backdrop-blur-sm" />
+          </div>
           
           <CardBody className="relative z-10 p-6 h-full flex flex-col text-white">
             {/* Header */}

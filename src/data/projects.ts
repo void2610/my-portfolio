@@ -45,7 +45,7 @@ export const projects: Project[] = [
     platform: "unityroom",
     tags: ["Unity", "C#"],
     url: "https://unityroom.com/games/touchstone",
-    publishedDate: "2024-6-23",
+    publishedDate: "2024-06-23",
     imageUrl: "/images/projects/touchstone.png",
   },
   {
@@ -142,7 +142,7 @@ export const projects: Project[] = [
     title: "VR-CET",
     description: "VR空間で仮想的な喫煙を行うことで、タバコ依存症治療のためのキュー曝露療法を支援するシステム。日本バーチャルリアリティ学会にて発表。",
     platform: "github",
-    tags: ["typescript", "Next.js", "Vercel"],
+    tags: ["Unity", "C#", "VR", "Research"],
     url: "https://github.com/void2610/VR-CET-Unity-2023",
     publishedDate: "2024-01-12",
     imageUrl: "/images/projects/vr-cet.png",
