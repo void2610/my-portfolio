@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Card, CardBody, Button } from "@heroui/react";
-import { GitBranch, ExternalLink, Gamepad2, Monitor, Calendar, Code, Users, Star } from "lucide-react";
+import { Github, ExternalLink } from "lucide-react";
 import { useState } from "react";
 
 type Platform = 'github' | 'unityroom' | 'steam';
@@ -17,15 +17,6 @@ interface Project {
   publishedDate: string;
   imageUrl?: string;
   featured?: boolean;
-  backInfo?: {
-    stats?: {
-      downloads?: number;
-      stars?: number;
-      contributors?: number;
-    };
-    details?: string[];
-    technologies?: string[];
-  };
 }
 
 const projects: Project[] = [
@@ -37,12 +28,7 @@ const projects: Project[] = [
     tags: ["Next.js", "TypeScript", "React", "Tailwind"],
     url: "https://github.com/void2610/portfolio",
     publishedDate: "2024-12-01",
-    imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=200&fit=crop",
-    backInfo: {
-      stats: { stars: 24, contributors: 2 },
-      details: ["レスポンシブデザイン対応", "ダークモード切り替え", "Framer Motion アニメーション", "HeroUI コンポーネント"],
-      technologies: ["Next.js 15", "TypeScript", "Tailwind CSS", "Framer Motion"]
-    }
+    imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=200&fit=crop"
   },
   {
     id: "2",
@@ -52,12 +38,7 @@ const projects: Project[] = [
     tags: ["Unity", "C#", "3D", "Puzzle"],
     url: "https://unityroom.com/games/example1",
     publishedDate: "2024-11-15",
-    imageUrl: "https://images.unsplash.com/photo-1551103782-8ab07afd45c1?w=400&h=200&fit=crop",
-    backInfo: {
-      stats: { downloads: 1250 },
-      details: ["物理演算ベースのパズル", "10のユニークなレベル", "インタラクティブな環境", "直感的な操作システム"],
-      technologies: ["Unity 2022.3", "C#", "Physics System", "Post-Processing"]
-    }
+    imageUrl: "https://images.unsplash.com/photo-1551103782-8ab07afd45c1?w=400&h=200&fit=crop"
   },
   {
     id: "3",
@@ -67,12 +48,7 @@ const projects: Project[] = [
     tags: ["Unity", "C#", "Editor", "Tools"],
     url: "https://github.com/void2610/unity-tools",
     publishedDate: "2024-10-20",
-    imageUrl: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=200&fit=crop",
-    backInfo: {
-      stats: { stars: 156, contributors: 5 },
-      details: ["自動アセット整理", "シーン管理ツール", "バッチ処理機能", "カスタムインスペクター"],
-      technologies: ["Unity Editor API", "C#", "Custom Inspector", "ScriptableObject"]
-    }
+    imageUrl: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=200&fit=crop"
   },
   {
     id: "4",
@@ -82,12 +58,7 @@ const projects: Project[] = [
     tags: ["Unity", "C#", "RPG", "Indie"],
     url: "https://store.steampowered.com/app/example",
     publishedDate: "2024-09-10",
-    imageUrl: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400&h=200&fit=crop",
-    backInfo: {
-      stats: { downloads: 3400 },
-      details: ["15時間のメインストーリー", "ターン制戦略バトル", "キャラクター育成システム", "サイドクエスト20個"],
-      technologies: ["Unity 2023.1", "C#", "Addressables", "Timeline"]
-    }
+    imageUrl: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400&h=200&fit=crop"
   },
   {
     id: "5",
@@ -97,12 +68,7 @@ const projects: Project[] = [
     tags: ["Unity", "C#", "2D", "Action"],
     url: "https://unityroom.com/games/example2",
     publishedDate: "2024-08-05",
-    imageUrl: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=200&fit=crop",
-    backInfo: {
-      stats: { downloads: 890 },
-      details: ["流動的なキャラクター操作", "8つの挑戦的なステージ", "隠しアイテム収集要素", "ボス戦バトル"],
-      technologies: ["Unity 2D", "C#", "Cinemachine", "Input System"]
-    }
+    imageUrl: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=200&fit=crop"
   },
   {
     id: "6",
@@ -112,19 +78,57 @@ const projects: Project[] = [
     tags: ["Unity", "C#", "Strategy", "AI"],
     url: "https://store.steampowered.com/app/example2",
     publishedDate: "2024-07-22",
-    imageUrl: "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=400&h=200&fit=crop",
-    backInfo: {
-      stats: { downloads: 2100 },
-      details: ["リアルタイム経済システム", "高度なAI行動パターン", "マルチプレイヤー対応", "モッドサポート"],
-      technologies: ["Unity Netcode", "C#", "Behavior Trees", "SQLite"]
-    }
+    imageUrl: "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=400&h=200&fit=crop"
   }
 ];
+
+// Custom Steam icon component
+const SteamIcon = () => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+    <path d="M11.979 0C5.678 0 0.511 4.86 0.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.029 4.524 4.524s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.624 0 11.999-5.375 11.999-12S18.603 0 11.979 0zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.082 3.332-1.379.263-.632.263-1.317 0-1.949-.265-.632-.713-1.078-1.344-1.344-.630-.261-1.316-.264-1.949 0l1.523.63c.956.394 1.407 1.472 1.014 2.43-.394.957-1.472 1.408-2.43 1.014l.013-.042zm9.955-9.435c-1.663 0-3.015-1.353-3.015-3.015 0-1.665 1.352-3.015 3.015-3.015 1.665 0 3.015 1.35 3.015 3.015 0 1.662-1.35 3.015-3.015 3.015zm-2.26-3.015c0-1.252 1.013-2.266 2.26-2.266 1.252 0 2.266 1.014 2.266 2.266 0 1.251-1.014 2.265-2.266 2.265-1.247 0-2.26-1.014-2.26-2.265z"/>
+  </svg>
+);
+
+// Custom Unityroom icon component
+const UnityroomIcon = () => (
+  <svg viewBox="0 0 180 180" fill="currentColor" className="w-5 h-5">
+    <path d="M89.000000,0.999999 
+      C92.361671,1.000000 95.723335,1.000000 99.203445,1.268793 
+      C100.230415,2.197768 101.048523,3.093434 102.061234,3.482372 
+      C114.749725,8.355466 127.389824,13.370981 140.196655,17.915056 
+      C153.901657,22.777826 155.000015,24.005650 155.000015,38.611012 
+      C155.000000,75.251427 155.006592,111.891846 154.994629,148.532257 
+      C154.992111,156.254242 152.117233,160.318008 145.038742,162.964630 
+      C130.793320,168.290878 116.557205,173.642349 102.348099,179.064240 
+      C101.740921,179.295914 101.442345,180.336334 101.000000,181.000000 
+      C96.974495,181.000000 92.948997,181.000000 88.799332,180.740784 
+      C84.250259,177.176468 82.985603,172.545258 82.987740,167.295456 
+      C83.008224,116.826508 82.987312,66.357552 83.018150,15.888617 
+      C83.021515,10.381287 83.664925,5.053647 89.276527,2.004473 
+      C89.345825,1.966817 89.099174,1.347703 89.000000,0.999999 
+      M101.336983,89.163521 
+      C100.759865,95.100327 102.795692,98.143188 108.300102,100.099785 
+      C112.431549,101.568352 115.714973,100.047997 117.916306,96.912506 
+      C121.690613,91.536560 120.372055,86.019356 115.143089,83.036415 
+      C109.867393,80.026817 104.849480,82.121849 101.336983,89.163521 
+      z"/>
+    <path d="M67.777725,26.378263 
+      C65.566887,20.667305 61.254353,18.655525 55.350334,18.952961 
+      C50.701057,19.187185 46.004269,19.317692 41.374889,18.934637 
+      C31.378458,18.107491 28.193066,23.917774 28.133005,32.106438 
+      C27.842432,71.723434 27.951506,111.343857 28.047167,150.962753 
+      C28.065109,158.394226 30.333799,162.236603 36.824371,163.107361 
+      C44.427540,164.127396 52.317326,164.036148 59.972492,163.292160 
+      C65.300865,162.774292 67.989120,158.395309 67.989548,153.069885 
+      C67.992905,111.120476 67.969849,69.171066 67.777725,26.378263 
+      z"/>
+  </svg>
+);
 
 const platformConfig = {
   github: {
     name: "GitHub",
-    icon: GitBranch,
+    icon: Github,
     color: "from-gray-600 to-gray-800",
     bgColor: "bg-gray-50 dark:bg-gray-800/30",
     borderColor: "border-gray-300 dark:border-gray-600",
@@ -132,7 +136,7 @@ const platformConfig = {
   },
   unityroom: {
     name: "unityroom", 
-    icon: Gamepad2,
+    icon: UnityroomIcon,
     color: "from-[#2E93FF] to-[#1E7AD8]",
     bgColor: "bg-blue-50 dark:bg-blue-900/20",
     borderColor: "border-blue-300 dark:border-blue-600", 
@@ -140,7 +144,7 @@ const platformConfig = {
   },
   steam: {
     name: "Steam",
-    icon: Monitor,
+    icon: SteamIcon,
     color: "from-[#1b2838] to-[#2a475e]",
     bgColor: "bg-slate-50 dark:bg-slate-800/30",
     borderColor: "border-slate-300 dark:border-slate-600",
@@ -161,19 +165,13 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
     });
   };
 
-  const formatNumber = (num: number) => {
-    if (num >= 1000) {
-      return (num / 1000).toFixed(1) + 'k';
-    }
-    return num.toString();
-  };
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="relative h-[280px] perspective-1000"
+      className="relative h-[320px] perspective-1000"
       onClick={() => setIsFlipped(!isFlipped)}
       whileHover={{ 
         rotateX: 8,
@@ -229,123 +227,58 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             </div>
           )}
           
-          <CardBody className="relative z-10 p-4 h-full flex text-white w-full">
-            {/* Left Column */}
-            <div className="w-1/2 pr-3">
-              <div className="flex items-center gap-2 mb-3">
-                <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${config.color} flex items-center justify-center shadow-lg`}>
-                  <Icon className="w-4 h-4 text-white" />
+          <CardBody className="relative z-10 p-6 h-full flex flex-col text-white">
+            {/* Header */}
+            <div className="flex items-start justify-between mb-6">
+              <div className="flex items-center gap-3">
+                <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${config.color} flex items-center justify-center shadow-lg`}>
+                  <Icon className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-white">{project.title}</h3>
-                  <p className="text-xs text-white/80 font-medium">{config.name}</p>
+                  <h3 className="text-lg font-bold text-white">{project.title}</h3>
+                  <p className="text-sm text-white/80 font-medium">{config.name}</p>
                 </div>
               </div>
-
-              {/* Description */}
-              <div className="mb-3">
-                <p className="text-xs text-white/90 leading-relaxed line-clamp-3">
-                  {project.description}
-                </p>
-              </div>
-
-              {/* Tags */}
-              <div className="flex flex-wrap gap-1 mb-3">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className={`px-1.5 py-0.5 text-xs rounded-full font-medium bg-gradient-to-r ${config.color} text-white shadow-sm`}
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
-              {/* Date and Link */}
-              <div className="mt-auto">
-                <Button
-                  as="a"
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  size="sm"
-                  className={`bg-gradient-to-r ${config.color} text-white font-medium shadow-md hover:shadow-lg transition-shadow text-xs`}
-                  endContent={<ExternalLink className="w-3 h-3" />}
-                  onPress={() => {}}
-                  onClick={(e: React.MouseEvent) => e.stopPropagation()}
-                >
-                  View Project
-                </Button>
-                <p className="text-white/70 text-xs font-medium mt-2">
+              <div className="text-right">
+                <span className="text-white/70 text-xs font-medium">
                   {formatDate(project.publishedDate)}
-                </p>
+                </span>
               </div>
             </div>
 
-            {/* Right Column */}
-            <div className="w-1/2 pl-3">
-              {/* Stats */}
-              {project.backInfo?.stats && (
-                <div className="mb-3">
-                  <h4 className="text-xs font-semibold text-white mb-2 flex items-center gap-1">
-                    <Star className="w-3 h-3" /> 統計
-                  </h4>
-                  <div className="space-y-1">
-                    {project.backInfo.stats.stars && (
-                      <div className="flex items-center gap-1 text-xs text-white/80">
-                        <Star className="w-3 h-3" />
-                        <span>{formatNumber(project.backInfo.stats.stars)} スター</span>
-                      </div>
-                    )}
-                    {project.backInfo.stats.downloads && (
-                      <div className="flex items-center gap-1 text-xs text-white/80">
-                        <Users className="w-3 h-3" />
-                        <span>{formatNumber(project.backInfo.stats.downloads)} DL</span>
-                      </div>
-                    )}
-                    {project.backInfo.stats.contributors && (
-                      <div className="flex items-center gap-1 text-xs text-white/80">
-                        <Users className="w-3 h-3" />
-                        <span>{project.backInfo.stats.contributors} 貢献者</span>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              )}
+            {/* Description */}
+            <div className="mb-4">
+              <p className="text-sm text-white/90 leading-relaxed line-clamp-3">
+                {project.description}
+              </p>
+            </div>
 
-              {/* Details */}
-              {project.backInfo?.details && (
-                <div className="mb-3 flex-1">
-                  <h4 className="text-xs font-semibold text-white mb-2 flex items-center gap-1">
-                    <Code className="w-3 h-3" /> 特徴
-                  </h4>
-                  <ul className="space-y-0.5">
-                    {project.backInfo.details.slice(0, 4).map((detail, i) => (
-                      <li key={i} className="text-xs text-white/80 flex items-start gap-1">
-                        <span className="w-0.5 h-0.5 bg-white rounded-full mt-1.5 flex-shrink-0"></span>
-                        {detail}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
+            {/* Tags */}
+            <div className="flex flex-wrap gap-2 mb-6">
+              {project.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className={`px-3 py-1 text-sm rounded-full font-medium bg-gradient-to-r ${config.color} text-white shadow-sm`}
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
 
-              {/* Technologies */}
-              {project.backInfo?.technologies && (
-                <div>
-                  <h4 className="text-xs font-semibold text-white mb-2">技術スタック</h4>
-                  <div className="flex flex-wrap gap-1">
-                    {project.backInfo.technologies.slice(0, 6).map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-1.5 py-0.5 text-xs bg-white/20 text-white rounded-md border border-white/30 backdrop-blur-sm"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
+            {/* Footer */}
+            <div className="pt-6 border-t border-white/20 mt-auto">
+              <Button
+                as="a"
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`bg-gradient-to-r ${config.color} text-white font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 rounded-full px-6 py-3 w-full flex items-center justify-center gap-2`}
+                onPress={() => {}}
+                onClick={(e: React.MouseEvent) => e.stopPropagation()}
+              >
+                <ExternalLink className="w-4 h-4" />
+                プロジェクトを見る
+              </Button>
             </div>
           </CardBody>
         </Card>
