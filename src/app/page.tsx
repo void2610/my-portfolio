@@ -7,14 +7,8 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-gray-900 dark:via-blue-900 dark:to-purple-900">
-      {/* Background light effects */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-400/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl" />
-      </div>
-      
-      <div className="relative z-10 max-w-6xl mx-auto px-4 py-20">
+    <div className="min-h-screen">
+      <div className="max-w-6xl mx-auto px-4 py-20">
         <motion.div 
           className="text-center"
           initial={{ opacity: 0, y: 30 }}
@@ -48,7 +42,7 @@ export default function Home() {
               href="/contact"
               size="lg"
               variant="bordered"
-              className="border-gray-300 text-gray-700 dark:text-gray-300 font-semibold backdrop-blur-sm"
+              className="border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 font-semibold backdrop-blur-sm"
             >
               Get in Touch
             </Button>
@@ -61,7 +55,7 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <Card className="bg-white/20 dark:bg-gray-800/20 backdrop-blur-lg border border-white/30 shadow-xl">
+          <Card className="bg-white dark:bg-gray-800 backdrop-blur-lg border border-gray-200 dark:border-gray-700 shadow-xl">
             <CardBody className="text-center p-8">
               <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                 <Gamepad className="w-8 h-8 text-white" />
@@ -73,7 +67,7 @@ export default function Home() {
             </CardBody>
           </Card>
           
-          <Card className="bg-white/20 dark:bg-gray-800/20 backdrop-blur-lg border border-white/30 shadow-xl">
+          <Card className="bg-white dark:bg-gray-800 backdrop-blur-lg border border-gray-200 dark:border-gray-700 shadow-xl">
             <CardBody className="text-center p-8">
               <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                 <Code className="w-8 h-8 text-white" />
@@ -85,7 +79,7 @@ export default function Home() {
             </CardBody>
           </Card>
           
-          <Card className="bg-white/20 dark:bg-gray-800/20 backdrop-blur-lg border border-white/30 shadow-xl">
+          <Card className="bg-white dark:bg-gray-800 backdrop-blur-lg border border-gray-200 dark:border-gray-700 shadow-xl">
             <CardBody className="text-center p-8">
               <div className="w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                 <Rocket className="w-8 h-8 text-white" />

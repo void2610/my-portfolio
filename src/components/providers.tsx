@@ -12,6 +12,8 @@ export function HeroUIProvider({ children }: { children: React.ReactNode }) {
         themes={["light", "dark"]}
         enableSystem={false}
         disableTransitionOnChange
+        forcedTheme={undefined}
+        storageKey="portfolio-theme"
       >
         {children}
       </NextThemesProvider>
