@@ -1,22 +1,106 @@
 @import "tailwindcss";
 
-/* Dark mode background fix */
+/* Unified Color System */
 :root {
+  /* Background Colors */
   --background: #ffffff;
-  --foreground: #171717;
+  --background-secondary: #f8fafc;
+  --surface: #ffffff;
+  --surface-elevated: #ffffff;
+  
+  /* Text Colors */
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-tertiary: #64748b;
+  --text-muted: #94a3b8;
+  
+  /* Border Colors */
+  --border-primary: #e2e8f0;
+  --border-secondary: #cbd5e1;
+  
+  /* Interactive Colors */
+  --interactive-primary: #3b82f6;
+  --interactive-primary-hover: #2563eb;
+  --interactive-secondary: #6366f1;
+  --interactive-secondary-hover: #4f46e5;
+  
+  /* Status Colors */
+  --accent-blue: #3b82f6;
+  --accent-green: #10b981;
+  --accent-purple: #8b5cf6;
+  --accent-pink: #ec4899;
 }
 
 [data-theme="dark"], .dark {
-  --background: #111827;
-  --foreground: #f9fafb;
+  /* Background Colors */
+  --background: #0f172a;
+  --background-secondary: #1e293b;
+  --surface: #1e293b;
+  --surface-elevated: #334155;
+  
+  /* Text Colors */
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-tertiary: #94a3b8;
+  --text-muted: #64748b;
+  
+  /* Border Colors */
+  --border-primary: #334155;
+  --border-secondary: #475569;
+  
+  /* Interactive Colors */
+  --interactive-primary: #60a5fa;
+  --interactive-primary-hover: #3b82f6;
+  --interactive-secondary: #818cf8;
+  --interactive-secondary-hover: #6366f1;
+  
+  /* Status Colors */
+  --accent-blue: #60a5fa;
+  --accent-green: #34d399;
+  --accent-purple: #a78bfa;
+  --accent-pink: #f472b6;
 }
 
+/* Global Styles */
 html {
   background-color: var(--background);
-  color: var(--foreground);
+  color: var(--text-primary);
 }
 
 body {
   background-color: var(--background);
-  color: var(--foreground);
+  color: var(--text-primary);
+}
+
+/* Utility Classes */
+.text-primary {
+  color: var(--text-primary);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-tertiary {
+  color: var(--text-tertiary);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.bg-surface {
+  background-color: var(--surface);
+}
+
+.bg-surface-elevated {
+  background-color: var(--surface-elevated);
+}
+
+.border-primary {
+  border-color: var(--border-primary);
+}
+
+.border-secondary {
+  border-color: var(--border-secondary);
 }

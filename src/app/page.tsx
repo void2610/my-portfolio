@@ -19,7 +19,7 @@ export default function Home() {
             Game Creator &<br />
             Software Engineer
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
+          <p className="text-xl text-secondary mb-12 max-w-2xl mx-auto">
             ゲーム開発とソフトウェア開発を通じて、創造的なソリューションを提供します。
           </p>
           
@@ -42,7 +42,7 @@ export default function Home() {
               href="/contact"
               size="lg"
               variant="bordered"
-              className="border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 font-semibold backdrop-blur-sm"
+              className="border-primary text-primary hover:bg-surface-elevated font-semibold backdrop-blur-sm"
             >
               Get in Touch
             </Button>
@@ -55,37 +55,37 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <Card className="bg-white dark:bg-gray-800 backdrop-blur-lg border border-gray-200 dark:border-gray-700 shadow-xl">
+          <Card className="bg-surface backdrop-blur-lg border border-primary shadow-xl">
             <CardBody className="text-center p-8">
               <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                 <Gamepad className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Game Development</h3>
-              <p className="text-gray-600 dark:text-gray-300">
+              <h3 className="text-xl font-semibold text-primary mb-2">Game Development</h3>
+              <p className="text-secondary">
                 創造的なゲーム体験を生み出すための開発に取り組んでいます。
               </p>
             </CardBody>
           </Card>
           
-          <Card className="bg-white dark:bg-gray-800 backdrop-blur-lg border border-gray-200 dark:border-gray-700 shadow-xl">
+          <Card className="bg-surface backdrop-blur-lg border border-primary shadow-xl">
             <CardBody className="text-center p-8">
               <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                 <Code className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Software Engineering</h3>
-              <p className="text-gray-600 dark:text-gray-300">
+              <h3 className="text-xl font-semibold text-primary mb-2">Software Engineering</h3>
+              <p className="text-secondary">
                 効率的で使いやすいソフトウェアソリューションを開発します。
               </p>
             </CardBody>
           </Card>
           
-          <Card className="bg-white dark:bg-gray-800 backdrop-blur-lg border border-gray-200 dark:border-gray-700 shadow-xl">
+          <Card className="bg-surface backdrop-blur-lg border border-primary shadow-xl">
             <CardBody className="text-center p-8">
               <div className="w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                 <Rocket className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Innovation</h3>
-              <p className="text-gray-600 dark:text-gray-300">
+              <h3 className="text-xl font-semibold text-primary mb-2">Innovation</h3>
+              <p className="text-secondary">
                 新しい技術とアイデアを組み合わせて革新的な解決策を提供します。
               </p>
             </CardBody>

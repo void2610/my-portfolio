@@ -1,12 +1,12 @@
 export default function Projects() {
   return (
     <div className="max-w-6xl mx-auto px-4 py-12">
-      <h1 className="text-4xl font-bold text-gray-900 mb-8">Projects</h1>
+      <h1 className="text-4xl font-bold text-primary mb-8">Projects</h1>
       
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-900 mb-3">Game Project 1</h3>
-          <p className="text-gray-600 mb-4">
+        <div className="bg-surface rounded-lg shadow-md p-6 border border-primary">
+          <h3 className="text-xl font-semibold text-primary mb-3">Game Project 1</h3>
+          <p className="text-secondary mb-4">
             ゲーム開発プロジェクトの説明がここに入ります。
           </p>
           <div className="flex flex-wrap gap-2">
@@ -15,9 +15,9 @@ export default function Projects() {
           </div>
         </div>
 
-        <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-900 mb-3">Web Application</h3>
-          <p className="text-gray-600 mb-4">
+        <div className="bg-surface rounded-lg shadow-md p-6 border border-primary">
+          <h3 className="text-xl font-semibold text-primary mb-3">Web Application</h3>
+          <p className="text-secondary mb-4">
             ウェブアプリケーション開発プロジェクトの説明がここに入ります。
           </p>
           <div className="flex flex-wrap gap-2">
@@ -26,9 +26,9 @@ export default function Projects() {
           </div>
         </div>
 
-        <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-900 mb-3">Software Tool</h3>
-          <p className="text-gray-600 mb-4">
+        <div className="bg-surface rounded-lg shadow-md p-6 border border-primary">
+          <h3 className="text-xl font-semibold text-primary mb-3">Software Tool</h3>
+          <p className="text-secondary mb-4">
             ソフトウェアツール開発プロジェクトの説明がここに入ります。
           </p>
           <div className="flex flex-wrap gap-2">

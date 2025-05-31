@@ -19,7 +19,7 @@ export default function ThemeToggle() {
         isIconOnly
         variant="ghost"
         size="sm"
-        className="text-gray-600 dark:text-gray-400"
+        className="text-tertiary"
         aria-label="Toggle theme"
       >
         <Sun className="w-5 h-5" />
@@ -38,7 +38,7 @@ export default function ThemeToggle() {
       isIconOnly
       variant="ghost"
       size="sm"
-      className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
+      className="text-tertiary hover:text-primary"
       onClick={toggleTheme}
       aria-label="Toggle theme"
     >
