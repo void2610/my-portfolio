@@ -1,6 +1,6 @@
 export default function UnityroomIcon() {
   return (
-    <svg viewBox="0 0 180 180" fill="currentColor" className="w-5 h-5">
+    <svg viewBox="0 0 180 180" fill="white" className="w-5 h-5">
       <path d="M89.000000,0.999999 
         C92.361671,1.000000 95.723335,1.000000 99.203445,1.268793 
         C100.230415,2.197768 101.048523,3.093434 102.061234,3.482372 

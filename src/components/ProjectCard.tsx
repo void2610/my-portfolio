@@ -64,9 +64,21 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
             
             {/* Platform Icon */}
-            <div className={`absolute top-4 right-4 w-10 h-10 rounded-xl bg-gradient-to-br ${config.color} flex items-center justify-center shadow-lg backdrop-blur-sm`}>
+            <motion.a
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`absolute top-4 right-4 w-10 h-10 rounded-xl bg-gradient-to-br ${config.color} flex items-center justify-center shadow-lg backdrop-blur-sm cursor-pointer`}
+              onClick={(e) => e.stopPropagation()}
+              whileHover={{ 
+                scale: 1.1,
+                rotate: 5,
+                transition: { duration: 0.2 }
+              }}
+              whileTap={{ scale: 0.95 }}
+            >
               <Icon className="w-5 h-5 text-white" />
-            </div>
+            </motion.a>
             
             {/* Title Overlay */}
             <div className="absolute bottom-0 left-0 right-0 p-6">
@@ -144,8 +156,6 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`bg-gradient-to-r ${config.color} text-white font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 rounded-full px-6 py-3 w-full flex items-center justify-center gap-2`}
-                onPress={() => {}}
-                onClick={(e: React.MouseEvent) => e.stopPropagation()}
               >
                 <ExternalLink className="w-4 h-4" />
                 プロジェクトを見る

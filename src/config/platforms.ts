@@ -1,4 +1,4 @@
-import { Github } from "lucide-react";
+import GitHubIcon from "@/components/icons/GitHubIcon";
 import SteamIcon from "@/components/icons/SteamIcon";
 import UnityroomIcon from "@/components/icons/UnityroomIcon";
 import { Platform } from "@/data/projects";
@@ -6,7 +6,7 @@ import { Platform } from "@/data/projects";
 export const platformConfig = {
   github: {
     name: "GitHub",
-    icon: Github,
+    icon: GitHubIcon,
     color: "from-gray-600 to-gray-800",
     bgColor: "bg-gray-50 dark:bg-gray-800/30",
     borderColor: "border-gray-300 dark:border-gray-600",
