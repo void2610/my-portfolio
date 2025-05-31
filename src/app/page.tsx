@@ -39,57 +39,68 @@ export default function Home() {
             </Button>
             <Button 
               as={Link}
-              href="/contact"
+              href="/about"
               size="lg"
               variant="bordered"
               className="border-primary text-primary hover:bg-surface-elevated font-semibold backdrop-blur-sm"
+            >
+              About Me
+            </Button>
+            <Button 
+              as={Link}
+              href="/contact"
+              size="lg"
+              variant="ghost"
+              className="text-primary hover:bg-surface-elevated font-semibold"
             >
               Get in Touch
             </Button>
           </motion.div>
         </motion.div>
         
-        <motion.div 
-          className="mt-20 grid md:grid-cols-3 gap-8"
-          initial={{ opacity: 0, y: 40 }}
+        <motion.div
+          className="mt-16 text-center"
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <Card className="bg-surface backdrop-blur-lg border border-primary shadow-xl">
-            <CardBody className="text-center p-8">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                <Gamepad className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-xl font-semibold text-primary mb-2">Game Development</h3>
-              <p className="text-secondary">
-                創造的なゲーム体験を生み出すための開発に取り組んでいます。
-              </p>
-            </CardBody>
-          </Card>
+          <p className="text-tertiary text-lg mb-8">
+            私のスキルや経験について詳しく知りたい方は<Link href="/about" className="text-primary hover:text-secondary underline">About</Link>ページを、
+            <br />
+            これまでの作品をご覧になりたい方は<Link href="/projects" className="text-primary hover:text-secondary underline">Projects</Link>ページをご確認ください。
+          </p>
           
-          <Card className="bg-surface backdrop-blur-lg border border-primary shadow-xl">
-            <CardBody className="text-center p-8">
-              <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                <Code className="w-8 h-8 text-white" />
+          <div className="flex justify-center space-x-8 text-tertiary">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="flex flex-col items-center"
+            >
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mb-2 shadow-lg">
+                <Gamepad className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-primary mb-2">Software Engineering</h3>
-              <p className="text-secondary">
-                効率的で使いやすいソフトウェアソリューションを開発します。
-              </p>
-            </CardBody>
-          </Card>
-          
-          <Card className="bg-surface backdrop-blur-lg border border-primary shadow-xl">
-            <CardBody className="text-center p-8">
-              <div className="w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                <Rocket className="w-8 h-8 text-white" />
+              <span className="text-sm">Game Dev</span>
+            </motion.div>
+            
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="flex flex-col items-center"
+            >
+              <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mb-2 shadow-lg">
+                <Code className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-primary mb-2">Innovation</h3>
-              <p className="text-secondary">
-                新しい技術とアイデアを組み合わせて革新的な解決策を提供します。
-              </p>
-            </CardBody>
-          </Card>
+              <span className="text-sm">Software Eng</span>
+            </motion.div>
+            
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="flex flex-col items-center"
+            >
+              <div className="w-12 h-12 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center mb-2 shadow-lg">
+                <Rocket className="w-6 h-6 text-white" />
+              </div>
+              <span className="text-sm">Innovation</span>
+            </motion.div>
+          </div>
         </motion.div>
       </div>
     </div>
