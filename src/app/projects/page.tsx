@@ -1,13 +1,30 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState } from "react";
 import ProjectCard from "@/components/ProjectCard";
+import SortSelector from "@/components/SortSelector";
 import { projects } from "@/data/projects";
 
+type SortOption = "date-desc" | "date-asc" | "platform";
+
 export default function Projects() {
-  const sortedProjects = [...projects].sort((a, b) => 
-    new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime()
-  );
+  const [sortOption, setSortOption] = useState<SortOption>("date-desc");
+
+  const sortedProjects = [...projects].sort((a, b) => {
+    switch (sortOption) {
+      case "date-desc":
+        return new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime();
+      case "date-asc":
+        return new Date(a.publishedDate).getTime() - new Date(b.publishedDate).getTime();
+      case "platform":
+        // プラットフォーム順: GitHub → unityroom → Steam
+        const platformOrder = { github: 0, unityroom: 1, steam: 2 };
+        return platformOrder[a.platform] - platformOrder[b.platform];
+      default:
+        return 0;
+    }
+  });
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-12">
@@ -21,15 +38,28 @@ export default function Projects() {
           Projects
         </h1>
         <p className="text-xl text-secondary max-w-2xl mx-auto">
-          ゲーム開発とソフトウェア開発の作品を公開日順にご紹介します。
+          ゲーム開発とソフトウェア開発の作品をご紹介します。
         </p>
       </motion.div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      {/* Sort Options */}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, delay: 0.2 }}
+        className="flex justify-end mb-8"
+      >
+        <SortSelector value={sortOption} onChange={setSortOption} />
+      </motion.div>
+
+      <motion.div 
+        className="grid grid-cols-1 lg:grid-cols-2 gap-6"
+        key={sortOption} // この key により、ソート変更時に再レンダリングされる
+      >
         {sortedProjects.map((project, index) => (
           <ProjectCard key={`${project.title}-${project.platform}`} project={project} index={index} />
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 }
