@@ -12,6 +12,7 @@ export default function ProjectCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
   const [direction, setDirection] = useState(0)
+  const [imageErrors, setImageErrors] = useState<Set<string>>(new Set())
 
   // Filter featured projects or show all if none are featured
   const featuredProjects = projects.filter(p => p.featured).length > 0 
@@ -100,7 +101,7 @@ export default function ProjectCarousel() {
             onMouseEnter={() => setIsAutoPlaying(false)}
             onMouseLeave={() => setIsAutoPlaying(true)}
           >
-            {featuredProjects[currentIndex].imageUrl ? (
+            {featuredProjects[currentIndex].imageUrl && !imageErrors.has(featuredProjects[currentIndex].imageUrl) ? (
               <Image
                 src={featuredProjects[currentIndex].imageUrl}
                 alt={featuredProjects[currentIndex].title}
@@ -108,9 +109,12 @@ export default function ProjectCarousel() {
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 896px"
                 priority
+                onError={() => {
+                  setImageErrors(prev => new Set(prev).add(featuredProjects[currentIndex].imageUrl))
+                }}
               />
             ) : (
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-600 to-gray-800" />
+              <div className="absolute inset-0 bg-gradient-to-br from-slate-700 to-slate-900" />
             )}
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
