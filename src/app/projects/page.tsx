@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import ProjectCard from "@/components/ProjectCard";
 import SortSelector from "@/components/SortSelector";
 import TagFilter from "@/components/TagFilter";
@@ -9,9 +10,32 @@ import { projects } from "@/data/projects";
 
 type SortOption = "date-desc" | "date-asc" | "platform";
 
-export default function Projects() {
+function ProjectsContent() {
   const [sortOption, setSortOption] = useState<SortOption>("date-desc");
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const searchParams = useSearchParams();
+  const scrollTo = searchParams.get('scrollTo');
+
+  useEffect(() => {
+    if (scrollTo) {
+      // Wait for the page to load and then scroll to the project
+      setTimeout(() => {
+        const projectElement = document.getElementById(`project-${scrollTo}`);
+        if (projectElement) {
+          projectElement.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center' 
+          });
+          
+          // Add a highlight effect
+          projectElement.classList.add('ring-2', 'ring-interactive-primary', 'ring-offset-2');
+          setTimeout(() => {
+            projectElement.classList.remove('ring-2', 'ring-interactive-primary', 'ring-offset-2');
+          }, 2000);
+        }
+      }, 500);
+    }
+  }, [scrollTo]);
 
   // すべてのタグとその使用回数を収集
   const tagCounts = projects.reduce((acc, project) => {
@@ -108,5 +132,19 @@ export default function Projects() {
         </motion.div>
       )}
     </div>
+  );
+}
+
+export default function Projects() {
+  return (
+    <Suspense fallback={
+      <div className="max-w-7xl mx-auto px-4 py-12">
+        <div className="text-center">
+          <div className="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-interactive-primary"></div>
+        </div>
+      </div>
+    }>
+      <ProjectsContent />
+    </Suspense>
   );
 }
