@@ -154,16 +154,24 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
 
             {/* Footer */}
             <div className="pt-6 border-t border-white/20 mt-auto">
-              <Button
-                as="a"
-                href={project.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`bg-gradient-to-r ${config.color} text-white font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 rounded-full px-6 py-3 w-full flex items-center justify-center gap-2`}
+              <motion.div
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                <ExternalLink className="w-4 h-4" />
-                プロジェクトを見る
-              </Button>
+                <Button
+                  as="a"
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`relative bg-gradient-to-r ${config.color} text-white font-semibold shadow-lg rounded-full px-6 py-3 w-full flex items-center justify-center gap-2 overflow-hidden group`}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <span className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
+                  <ExternalLink className="w-4 h-4 relative z-10 transition-transform duration-300 group-hover:rotate-12" />
+                  <span className="relative z-10">プロジェクトを見る</span>
+                </Button>
+              </motion.div>
             </div>
           </CardBody>
         </Card>
