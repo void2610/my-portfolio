@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { Github, Twitter, Globe } from "lucide-react";
 import Timeline from "@/components/Timeline";
 
