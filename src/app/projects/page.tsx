@@ -4,14 +4,33 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import ProjectCard from "@/components/ProjectCard";
 import SortSelector from "@/components/SortSelector";
+import TagFilter from "@/components/TagFilter";
 import { projects } from "@/data/projects";
 
 type SortOption = "date-desc" | "date-asc" | "platform";
 
 export default function Projects() {
   const [sortOption, setSortOption] = useState<SortOption>("date-desc");
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
-  const sortedProjects = [...projects].sort((a, b) => {
+  // すべてのタグとその使用回数を収集
+  const tagCounts = projects.reduce((acc, project) => {
+    project.tags.forEach(tag => {
+      acc[tag] = (acc[tag] || 0) + 1;
+    });
+    return acc;
+  }, {} as Record<string, number>);
+
+  // タグを使用回数でソート（多い順）
+  const allTags = Object.keys(tagCounts).sort((a, b) => tagCounts[b] - tagCounts[a]);
+
+  // フィルターとソートを適用
+  const filteredAndSortedProjects = [...projects]
+    .filter(project => 
+      selectedTags.length === 0 || 
+      selectedTags.some(tag => project.tags.includes(tag))
+    )
+    .sort((a, b) => {
     switch (sortOption) {
       case "date-desc":
         return new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime();
@@ -42,24 +61,52 @@ export default function Projects() {
         </p>
       </motion.div>
 
-      {/* Sort Options */}
+      {/* Filter and Sort Options */}
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, delay: 0.2 }}
-        className="flex justify-end mb-8"
+        transition={{ duration: 0.4, delay: 0.1 }}
+        className="flex justify-end items-center gap-3 mb-8"
       >
+        {/* Tag Filter */}
+        <TagFilter 
+          tags={allTags}
+          tagCounts={tagCounts}
+          selectedTags={selectedTags}
+          onChange={setSelectedTags}
+        />
+        
+        {/* Sort Options */}
         <SortSelector value={sortOption} onChange={setSortOption} />
       </motion.div>
 
-      <motion.div 
-        className="grid grid-cols-1 lg:grid-cols-2 gap-6"
-        key={sortOption} // この key により、ソート変更時に再レンダリングされる
-      >
-        {sortedProjects.map((project, index) => (
-          <ProjectCard key={`${project.title}-${project.platform}`} project={project} index={index} />
-        ))}
-      </motion.div>
+      {/* Project Grid */}
+      {filteredAndSortedProjects.length > 0 ? (
+        <motion.div 
+          className="grid grid-cols-1 lg:grid-cols-2 gap-6"
+          key={`${sortOption}-${selectedTags.join(',')}`} // ソートとフィルター変更時に再レンダリング
+        >
+          {filteredAndSortedProjects.map((project, index) => (
+            <ProjectCard key={`${project.title}-${project.platform}`} project={project} index={index} />
+          ))}
+        </motion.div>
+      ) : (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="text-center py-20"
+        >
+          <p className="text-xl text-secondary">
+            選択されたタグに一致するプロジェクトがありません
+          </p>
+          <button
+            onClick={() => setSelectedTags([])}
+            className="mt-4 text-interactive-primary hover:underline"
+          >
+            フィルターをクリア
+          </button>
+        </motion.div>
+      )}
     </div>
   );
 }
