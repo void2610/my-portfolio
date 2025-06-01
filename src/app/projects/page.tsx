@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import ProjectCard from "@/components/ProjectCard";
 import SortSelector from "@/components/SortSelector";
@@ -10,7 +10,7 @@ import { projects } from "@/data/projects";
 
 type SortOption = "date-desc" | "date-asc" | "platform";
 
-export default function Projects() {
+function ProjectsContent() {
   const [sortOption, setSortOption] = useState<SortOption>("date-desc");
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const searchParams = useSearchParams();
@@ -132,5 +132,19 @@ export default function Projects() {
         </motion.div>
       )}
     </div>
+  );
+}
+
+export default function Projects() {
+  return (
+    <Suspense fallback={
+      <div className="max-w-7xl mx-auto px-4 py-12">
+        <div className="text-center">
+          <div className="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-interactive-primary"></div>
+        </div>
+      </div>
+    }>
+      <ProjectsContent />
+    </Suspense>
   );
 }
