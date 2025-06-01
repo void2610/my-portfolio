@@ -24,9 +24,12 @@ export default function About() {
           className="relative"
         >
           <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden bg-gradient-to-br from-blue-500 to-purple-600 p-1">
-            <div className="w-full h-full rounded-full bg-surface flex items-center justify-center">
-              {/* プロフィール画像がある場合はここに追加 */}
-              <div className="text-6xl md:text-8xl">👤</div>
+            <div className="w-full h-full rounded-full bg-surface overflow-hidden">
+              <img 
+                src="/images/void2610_ca.png" 
+                alt="void2610 avatar"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
           {/* 装飾的な要素 */}
