@@ -26,10 +26,13 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       day: 'numeric'
     });
   };
+  
+  // Sanitize title for HTML ID by replacing spaces and special characters
+  const sanitizedId = `project-${project.title.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}`;
 
   return (
     <motion.div
-      id={`project-${project.title}`}
+      id={sanitizedId}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}

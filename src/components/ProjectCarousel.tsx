@@ -11,6 +11,7 @@ export default function ProjectCarousel() {
   const router = useRouter()
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
+  const [direction, setDirection] = useState(0)
 
   // Filter featured projects or show all if none are featured
   const featuredProjects = projects.filter(p => p.featured).length > 0 
@@ -21,6 +22,7 @@ export default function ProjectCarousel() {
     if (!isAutoPlaying) return
 
     const interval = setInterval(() => {
+      setDirection(1)
       setCurrentIndex((prev) => (prev + 1) % featuredProjects.length)
     }, 4000) // Change slide every 4 seconds
 
@@ -29,11 +31,13 @@ export default function ProjectCarousel() {
 
   const handlePrevious = () => {
     setIsAutoPlaying(false)
+    setDirection(-1)
     setCurrentIndex((prev) => (prev - 1 + featuredProjects.length) % featuredProjects.length)
   }
 
   const handleNext = () => {
     setIsAutoPlaying(false)
+    setDirection(1)
     setCurrentIndex((prev) => (prev + 1) % featuredProjects.length)
   }
 
@@ -67,10 +71,10 @@ export default function ProjectCarousel() {
   return (
     <div className="relative w-full max-w-4xl mx-auto">
       <div className="relative aspect-[16/9] overflow-hidden rounded-lg bg-surface-elevated">
-        <AnimatePresence initial={false} custom={currentIndex}>
+        <AnimatePresence initial={false} custom={direction}>
           <motion.div
             key={currentIndex}
-            custom={currentIndex}
+            custom={direction}
             variants={slideVariants}
             initial="enter"
             animate="center"
@@ -96,14 +100,18 @@ export default function ProjectCarousel() {
             onMouseEnter={() => setIsAutoPlaying(false)}
             onMouseLeave={() => setIsAutoPlaying(true)}
           >
-            <Image
-              src={featuredProjects[currentIndex].imageUrl}
-              alt={featuredProjects[currentIndex].title}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 896px"
-              priority
-            />
+            {featuredProjects[currentIndex].imageUrl ? (
+              <Image
+                src={featuredProjects[currentIndex].imageUrl}
+                alt={featuredProjects[currentIndex].title}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 896px"
+                priority
+              />
+            ) : (
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-600 to-gray-800" />
+            )}
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
               <h3 className="text-2xl font-bold mb-2">
