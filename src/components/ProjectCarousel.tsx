@@ -110,7 +110,10 @@ export default function ProjectCarousel() {
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 896px"
                 priority
                 onError={() => {
-                  setImageErrors(prev => new Set(prev).add(featuredProjects[currentIndex].imageUrl))
+                  const imageUrl = featuredProjects[currentIndex].imageUrl
+                  if (imageUrl) {
+                    setImageErrors(prev => new Set(prev).add(imageUrl))
+                  }
                 }}
               />
             ) : (
