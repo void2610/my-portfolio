@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Button } from "@heroui/react";
 import { Gamepad, Code, Rocket } from "lucide-react";
 import Link from "next/link";
+import ProjectCarousel from "@/components/ProjectCarousel";
 
 export default function Home() {
   return (
@@ -56,6 +57,19 @@ export default function Home() {
               Get in Touch
             </Button>
           </motion.div>
+        </motion.div>
+
+        {/* Project Carousel Section */}
+        <motion.div
+          className="mt-20 mb-20"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        >
+          <h2 className="text-3xl font-bold text-center mb-8 text-primary">
+            Featured Projects
+          </h2>
+          <ProjectCarousel />
         </motion.div>
         
         <motion.div
