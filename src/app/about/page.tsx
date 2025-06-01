@@ -1,7 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, Twitter, Globe } from "lucide-react";
+import { Globe } from "lucide-react";
+import GitHubIcon from "@/components/icons/GitHubIcon";
+import { XIcon } from "@/components/icons/XIcon";
 import Timeline from "@/components/Timeline";
 
 export default function About() {
@@ -49,9 +51,14 @@ export default function About() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="flex-1 text-center md:text-left"
         >
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-4">
-            Your Name
-          </h1>
+          <div className="mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+              void2610
+            </h1>
+            <p className="text-lg text-tertiary mt-2">
+              Shuya IZUMI
+            </p>
+          </div>
           <p className="text-xl text-secondary mb-6">
             ゲームクリエイター / ソフトウェアエンジニア
           </p>
@@ -70,7 +77,7 @@ export default function About() {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Github className="w-5 h-5" />
+              <GitHubIcon className="w-5 h-5" />
             </motion.a>
             <motion.a
               href="https://twitter.com/void2610"
@@ -80,7 +87,7 @@ export default function About() {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Twitter className="w-5 h-5" />
+              <XIcon className="w-5 h-5" />
             </motion.a>
             <motion.a
               href="#"
@@ -143,25 +150,39 @@ export default function About() {
               transition={{ duration: 0.5, delay: 0.6 }}
               className="border-l-2 border-interactive-primary/30 pl-6"
             >
-              <h3 className="font-semibold text-primary">インディーゲーム開発</h3>
-              <p className="text-sm text-muted mb-2">2020年 - 現在</p>
+              <h3 className="font-semibold text-primary">MergeRogue(仮称) 開発</h3>
+              <p className="text-sm text-muted mb-2">2024年8月 - 現在</p>
               <p className="text-secondary">
-                複数のゲームをリリースし、unityroomやSteamで公開。
-                プレイヤーからのフィードバックを活かした改善を継続的に実施。
+                Steamでの有料販売を目指して開発中。
+                本格的なインディーゲームの制作に挑戦。
               </p>
             </motion.div>
-            
+
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.7 }}
               className="border-l-2 border-interactive-primary/30 pl-6"
             >
-              <h3 className="font-semibold text-primary">Web開発プロジェクト</h3>
-              <p className="text-sm text-muted mb-2">2021年 - 現在</p>
+              <h3 className="font-semibold text-primary">燈株式会社 インターン</h3>
+              <p className="text-sm text-muted mb-2">2023年9月 - 現在</p>
               <p className="text-secondary">
-                モダンなWeb技術を活用したアプリケーション開発。
-                React、Next.js、TypeScriptを使用した実装経験。
+                TypeScriptやPythonを用いたAIプロダクトの開発に従事。
+                最新のWeb技術とAI技術の実践的な経験を積む。
+              </p>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.8 }}
+              className="border-l-2 border-interactive-primary/30 pl-6"
+            >
+              <h3 className="font-semibold text-primary">ゲーム開発活動</h3>
+              <p className="text-sm text-muted mb-2">2024年1月 - 現在</p>
+              <p className="text-secondary">
+                unity1weekをはじめとしたゲームジャムに積極的に参加。
+                短期間での企画・開発・リリースの経験を積む。
               </p>
             </motion.div>
           </div>
