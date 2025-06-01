@@ -5,6 +5,7 @@ import { Globe } from "lucide-react";
 import GitHubIcon from "@/components/icons/GitHubIcon";
 import { XIcon } from "@/components/icons/XIcon";
 import Link from "next/link";
+import Image from "next/image";
 
 interface ProfileHeroProps {
   showDescription?: boolean;
@@ -14,11 +15,14 @@ interface ProfileHeroProps {
 export default function ProfileHero({ showDescription = true, isClickable = false }: ProfileHeroProps) {
   const avatarContent = (
     <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden bg-gradient-to-br from-blue-500 to-purple-600 p-0.5">
-      <div className="w-full h-full rounded-full bg-surface overflow-hidden">
-        <img 
+      <div className="w-full h-full rounded-full bg-surface overflow-hidden relative">
+        <Image 
           src="/images/void2610_ca.png" 
           alt="void2610 avatar"
-          className="w-full h-full object-cover"
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 192px, 256px"
+          priority
         />
       </div>
     </div>
