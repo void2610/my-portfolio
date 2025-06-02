@@ -17,7 +17,7 @@ const getIcon = (iconType: ContactMethod['iconType']): ReactNode => {
     case 'x':
       return <XIcon className="w-7 h-7 text-white" />;
     case 'github':
-      return <GitHubIcon className="w-7 h-7" />;
+      return <GitHubIcon className="w-7 h-7 text-white" />;
     case 'email':
       return <Mail className="w-7 h-7 text-white" />;
   }
