@@ -32,32 +32,32 @@
 }
 
 [data-theme="dark"], .dark {
-  /* Background Colors */
-  --background: #0f172a;
-  --background-secondary: #1e293b;
-  --surface: #1e293b;
-  --surface-elevated: #334155;
+  /* Background Colors - Much darker, almost black */
+  --background: #0a0a0a;
+  --background-secondary: #111111;
+  --surface: #111111;
+  --surface-elevated: #1a1a1a;
   
-  /* Text Colors */
-  --text-primary: #f8fafc;
-  --text-secondary: #cbd5e1;
-  --text-tertiary: #94a3b8;
-  --text-muted: #64748b;
+  /* Text Colors - High contrast whites and grays */
+  --text-primary: #ffffff;
+  --text-secondary: #e5e5e5;
+  --text-tertiary: #b3b3b3;
+  --text-muted: #737373;
   
-  /* Border Colors */
-  --border-primary: #334155;
-  --border-secondary: #475569;
+  /* Border Colors - Subtle but visible */
+  --border-primary: #262626;
+  --border-secondary: #404040;
   
-  /* Interactive Colors */
-  --interactive-primary: #60a5fa;
-  --interactive-primary-hover: #3b82f6;
-  --interactive-secondary: #818cf8;
-  --interactive-secondary-hover: #6366f1;
+  /* Interactive Colors - Vibrant and modern */
+  --interactive-primary: #00d4ff;
+  --interactive-primary-hover: #00b8e6;
+  --interactive-secondary: #7c3aed;
+  --interactive-secondary-hover: #6d28d9;
   
-  /* Status Colors */
-  --accent-blue: #60a5fa;
-  --accent-green: #34d399;
-  --accent-purple: #a78bfa;
+  /* Status Colors - Bright and modern */
+  --accent-blue: #00d4ff;
+  --accent-green: #00f5a0;
+  --accent-purple: #a855f7;
   --accent-pink: #f472b6;
 }
 
@@ -156,8 +156,8 @@ body {
 /* Enhanced shadow for tilted cards */
 .tilted-card-shadow {
   box-shadow: 
-    0 25px 50px -12px rgba(0, 0, 0, 0.25),
-    0 0 0 1px rgba(255, 255, 255, 0.05);
+    0 25px 50px -12px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
 /* Avatar Glow Animation */

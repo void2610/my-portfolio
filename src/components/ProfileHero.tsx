@@ -115,7 +115,7 @@ export default function ProfileHero({ showDescription = true, isClickable = fals
         transition={{ duration: DURATION.MEDIUM, delay: DELAY.LARGE }}
         className="hidden md:block mx-8 self-center"
       >
-        <div className="w-[3px] h-56 bg-gray-300 dark:bg-gray-600 rounded-full" />
+        <div className="w-[3px] h-56 bg-gray-300 dark:bg-gray-700 rounded-full" />
       </motion.div>
 
       {/* Profile Text */}

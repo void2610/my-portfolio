@@ -40,7 +40,7 @@ export default function SortSelector({ value, onChange }: SortSelectorProps) {
     <div className="relative">
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-3 px-4 py-2.5 bg-surface dark:bg-gray-800/90 backdrop-blur-sm border border-border-secondary rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
+        className="flex items-center gap-3 px-4 py-2.5 bg-surface-elevated rounded-xl shadow-lg hover:shadow-xl hover:bg-interactive-primary/10 transition-all duration-300"
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
       >
@@ -77,7 +77,7 @@ export default function SortSelector({ value, onChange }: SortSelectorProps) {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: -10 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
-              className="absolute right-0 mt-2 w-64 max-w-[calc(100vw-2rem)] bg-surface dark:bg-gray-800 backdrop-blur-sm border border-border-secondary rounded-xl shadow-xl overflow-hidden z-50"
+              className="absolute right-0 mt-2 w-64 max-w-[calc(100vw-2rem)] bg-surface-elevated rounded-xl shadow-xl overflow-hidden z-50"
             >
               {sortOptions.map((option, index) => {
                 const Icon = option.icon;
@@ -93,7 +93,7 @@ export default function SortSelector({ value, onChange }: SortSelectorProps) {
                     className={`w-full flex items-center gap-3 px-4 py-3 transition-all duration-200 ${
                       isSelected
                         ? "bg-interactive-primary/10 text-interactive-primary"
-                        : "hover:bg-white/5 dark:hover:bg-white/10 text-primary"
+                        : "hover:bg-interactive-primary/10 text-primary"
                     }`}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -103,7 +103,7 @@ export default function SortSelector({ value, onChange }: SortSelectorProps) {
                     <div className={`p-2 rounded-lg ${
                       isSelected
                         ? "bg-interactive-primary/20"
-                        : "bg-gray-100 dark:bg-gray-700/50"
+                        : "bg-interactive-primary/5"
                     }`}>
                       <Icon className={`w-4 h-4 ${
                         isSelected ? "text-interactive-primary" : "text-secondary"

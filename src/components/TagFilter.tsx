@@ -26,7 +26,7 @@ export default function TagFilter({ tags, tagCounts, selectedTags, onChange }: T
     <div className="relative">
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-3 px-4 py-2.5 bg-surface dark:bg-gray-800/90 backdrop-blur-sm border border-border-secondary rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
+        className="flex items-center gap-3 px-4 py-2.5 bg-surface-elevated rounded-xl shadow-lg hover:shadow-xl hover:bg-interactive-primary/10 transition-all duration-300"
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
       >
@@ -69,10 +69,10 @@ export default function TagFilter({ tags, tagCounts, selectedTags, onChange }: T
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: -10 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
-              className="absolute left-0 sm:left-auto sm:right-0 mt-2 w-72 max-w-[calc(100vw-2rem)] max-h-96 bg-surface dark:bg-gray-800 backdrop-blur-sm border border-border-secondary rounded-xl shadow-xl overflow-hidden z-50"
+              className="absolute left-0 sm:left-auto sm:right-0 mt-2 w-72 max-w-[calc(100vw-2rem)] max-h-96 bg-surface-elevated rounded-xl shadow-xl overflow-hidden z-50"
             >
               {/* ヘッダー */}
-              <div className="px-4 py-3 border-b border-border-secondary">
+              <div className="px-4 py-3">
                 <div className="flex items-center justify-between">
                   <p className="text-sm font-semibold text-primary">タグを選択</p>
                   {selectedTags.length > 0 && (
@@ -110,10 +110,10 @@ export default function TagFilter({ tags, tagCounts, selectedTags, onChange }: T
                       whileHover={{ x: 2 }}
                     >
                       {/* チェックボックス */}
-                      <div className={`w-4 h-4 rounded border-2 transition-all duration-200 flex items-center justify-center ${
+                      <div className={`w-4 h-4 rounded transition-all duration-200 flex items-center justify-center ${
                         isSelected
-                          ? "bg-interactive-primary border-interactive-primary"
-                          : "border-border-secondary"
+                          ? "bg-interactive-primary"
+                          : "bg-interactive-primary/10"
                       }`}>
                         {isSelected && (
                           <motion.svg
