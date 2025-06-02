@@ -6,13 +6,14 @@ import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { projects } from '@/data/projects'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { useImageError } from '@/hooks/useImageError'
 
 export default function ProjectCarousel() {
   const router = useRouter()
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
   const [direction, setDirection] = useState(0)
-  const [imageErrors, setImageErrors] = useState<Set<string>>(new Set())
+  const { handleImageError, hasError } = useImageError()
 
   // Filter featured projects or show all if none are featured
   const featuredProjects = projects.filter(p => p.featured).length > 0 
@@ -101,7 +102,7 @@ export default function ProjectCarousel() {
             onMouseEnter={() => setIsAutoPlaying(false)}
             onMouseLeave={() => setIsAutoPlaying(true)}
           >
-            {featuredProjects[currentIndex].imageUrl && !imageErrors.has(featuredProjects[currentIndex].imageUrl) ? (
+            {featuredProjects[currentIndex].imageUrl && !hasError(featuredProjects[currentIndex].imageUrl) ? (
               <Image
                 src={featuredProjects[currentIndex].imageUrl}
                 alt={featuredProjects[currentIndex].title}
@@ -112,7 +113,7 @@ export default function ProjectCarousel() {
                 onError={() => {
                   const imageUrl = featuredProjects[currentIndex].imageUrl
                   if (imageUrl) {
-                    setImageErrors(prev => new Set(prev).add(imageUrl))
+                    handleImageError(imageUrl)
                   }
                 }}
               />

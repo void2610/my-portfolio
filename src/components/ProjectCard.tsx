@@ -7,6 +7,8 @@ import { useState } from "react";
 import Image from "next/image";
 import { Project } from "@/data/projects";
 import { platformConfig } from "@/config/platforms";
+import { formatDate } from "@/utils/date";
+import { useImageError } from "@/hooks/useImageError";
 
 interface ProjectCardProps {
   project: Project;
@@ -17,15 +19,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
   const config = platformConfig[project.platform];
   const Icon = config.icon;
   const [isFlipped, setIsFlipped] = useState(false);
-  const [imageError, setImageError] = useState(false);
-  
-  const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('ja-JP', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    });
-  };
+  const { handleImageError, hasError } = useImageError();
   
   // Sanitize title for HTML ID by replacing spaces and special characters
   const sanitizedId = `project-${project.title.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}`;
@@ -53,14 +47,14 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
         {/* Front Side */}
         <Card className={`absolute inset-0 overflow-hidden border-2 rounded-2xl backface-hidden border-transparent tilted-card-shadow`}>
           <div className="relative h-full overflow-hidden rounded-2xl">
-            {project.imageUrl && !imageError ? (
+            {project.imageUrl && !hasError(project.imageUrl) ? (
               <Image 
                 src={project.imageUrl} 
                 alt={project.title}
                 width={400}
                 height={200}
                 className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                onError={() => setImageError(true)}
+                onError={() => handleImageError(project.imageUrl!)}
               />
             ) : (
               <div className="w-full h-full bg-gradient-to-br from-gray-600 to-gray-800" />
@@ -99,14 +93,14 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
         {/* Back Side */}
         <Card className={`absolute inset-0 overflow-hidden border-2 rounded-2xl backface-hidden rotate-x-180 border-transparent flex tilted-card-shadow`}>
           <div className="absolute inset-0">
-            {project.imageUrl && !imageError ? (
+            {project.imageUrl && !hasError(project.imageUrl) ? (
               <Image 
                 src={project.imageUrl} 
                 alt={project.title}
                 width={400}
                 height={200}
                 className="w-full h-full object-cover blur-md scale-110"
-                onError={() => setImageError(true)}
+                onError={() => handleImageError(project.imageUrl!)}
               />
             ) : (
               <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-900" />
