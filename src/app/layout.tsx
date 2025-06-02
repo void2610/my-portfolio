@@ -16,6 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://void2610.dev'),
   title: "void2610",
   description: "Portfolio website showcasing game development and software engineering projects by void2610",
   keywords: ["game development", "software engineering", "portfolio", "unity", "react", "next.js"],
@@ -55,8 +56,8 @@ export const metadata: Metadata = {
   },
   alternates: {
     languages: {
-      'en': '/?lang=en',
-      'ja': '/?lang=ja',
+      'en': '/en',
+      'ja': '/ja',
       'x-default': '/',
     },
   },
