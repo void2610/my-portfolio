@@ -31,11 +31,27 @@ export function createPageMetadata(
     keywords: options?.keywords,
     openGraph: {
       title: fullTitle,
-      description: options?.description,
+      description: options?.description || "void2610の公式ホームページ。これまでの制作物を紹介しています。",
+      type: "website",
+      locale: "ja_JP",
+      url: "https://www.void2610.dev",
+      siteName: "void2610.dev",
+      images: [
+        {
+          url: "https://www.void2610.dev/images/void2610_ca.png",
+          width: 1200,
+          height: 630,
+          alt: "void2610",
+        },
+      ],
     },
     twitter: {
+      card: "summary_large_image",
+      site: "@void2610",
+      creator: "@void2610",
       title: fullTitle,
-      description: options?.description,
+      description: options?.description || "void2610の公式ホームページ。これまでの制作物を紹介しています。",
+      images: ["https://www.void2610.dev/images/void2610_ca.png"],
     },
   };
 }
