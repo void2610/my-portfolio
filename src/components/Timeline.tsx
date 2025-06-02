@@ -7,7 +7,7 @@ import { timelineData } from "@/data/timeline";
 
 export default function Timeline() {
   return (
-    <div className="mt-20">
+    <div>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
