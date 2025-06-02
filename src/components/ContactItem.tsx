@@ -7,6 +7,7 @@ import { Mail } from "lucide-react";
 import { XIcon } from "@/components/icons/XIcon";
 import GitHubIcon from "@/components/icons/GitHubIcon";
 import { ContactMethod } from "@/data/contact";
+import { fadeInUp, springTransition, createStaggerDelay } from "@/config/animations";
 
 interface ContactItemProps extends ContactMethod {
   index: number;
@@ -37,12 +38,13 @@ export default function ContactItem({
   const icon = getIcon(iconType);
   return (
     <motion.a
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
+      variants={fadeInUp}
+      initial="initial"
+      animate="animate"
       transition={{ 
-        opacity: { duration: 0.6, delay: 0.4 + index * 0.1 },
-        y: { duration: 0.6, delay: 0.4 + index * 0.1 },
-        scale: { type: "spring", stiffness: 400, damping: 15 }
+        opacity: { duration: 0.6, delay: createStaggerDelay(index) },
+        y: { duration: 0.6, delay: createStaggerDelay(index) },
+        scale: springTransition
       }}
       href={href}
       target={target}

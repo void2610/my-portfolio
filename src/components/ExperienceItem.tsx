@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { fadeInRight, createStaggerDelay } from "@/config/animations";
 
 interface ExperienceItemProps {
   title: string;
@@ -12,9 +13,10 @@ interface ExperienceItemProps {
 export default function ExperienceItem({ title, period, description, index }: ExperienceItemProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, x: 20 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
+      variants={fadeInRight}
+      initial="initial"
+      animate="animate"
+      transition={{ duration: 0.5, delay: createStaggerDelay(index, 0.6) }}
       className="border-l-2 border-interactive-primary/30 pl-6"
     >
       <h3 className="font-semibold text-primary">{title}</h3>

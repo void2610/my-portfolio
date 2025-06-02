@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { fadeInLeft, createStaggerDelay } from "@/config/animations";
 
 interface SkillItemProps {
   name: string;
@@ -9,11 +10,14 @@ interface SkillItemProps {
 }
 
 export default function SkillItem({ name, level, index }: SkillItemProps) {
+  const delay = createStaggerDelay(index, 0.5);
+  
   return (
     <motion.div
-      initial={{ opacity: 0, x: -20 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.3, delay: 0.5 + index * 0.1 }}
+      variants={fadeInLeft}
+      initial="initial"
+      animate="animate"
+      transition={{ duration: 0.3, delay }}
     >
       <div className="flex justify-between mb-2">
         <span className="text-secondary">{name}</span>
@@ -24,7 +28,7 @@ export default function SkillItem({ name, level, index }: SkillItemProps) {
           className="h-full bg-gradient-to-r from-blue-500 to-purple-500"
           initial={{ width: 0 }}
           animate={{ width: `${level}%` }}
-          transition={{ duration: 1, delay: 0.7 + index * 0.1 }}
+          transition={{ duration: 1, delay: delay + 0.2 }}
         />
       </div>
     </motion.div>

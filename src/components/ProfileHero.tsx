@@ -6,6 +6,8 @@ import GitHubIcon from "@/components/icons/GitHubIcon";
 import { XIcon } from "@/components/icons/XIcon";
 import Link from "next/link";
 import Image from "next/image";
+import AnimatedContainer from "@/components/animations/AnimatedContainer";
+import { scaleIn, hoverScale } from "@/config/animations";
 
 interface ProfileHeroProps {
   showDescription?: boolean;
@@ -29,16 +31,16 @@ export default function ProfileHero({ showDescription = true, isClickable = fals
   );
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
+    <AnimatedContainer
+      variant="fadeInUp"
+      duration={0.6}
       className="flex flex-col md:flex-row items-center gap-8"
     >
       {/* Avatar with Glow */}
       <motion.div
-        initial={{ scale: 0.8, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
+        variants={scaleIn}
+        initial="initial"
+        animate="animate"
         transition={{ duration: 0.5, delay: 0.2 }}
         className="relative"
       >
@@ -95,8 +97,7 @@ export default function ProfileHero({ showDescription = true, isClickable = fals
           {isClickable ? (
             <Link href="/about" className="block cursor-pointer group">
               <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
+                {...hoverScale}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
                 {avatarContent}
@@ -119,10 +120,10 @@ export default function ProfileHero({ showDescription = true, isClickable = fals
       </motion.div>
 
       {/* Profile Text */}
-      <motion.div
-        initial={{ opacity: 0, x: 20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5, delay: 0.3 }}
+      <AnimatedContainer
+        variant="fadeInRight"
+        duration={0.5}
+        delay={0.3}
         className="flex-1 text-center md:text-left"
       >
         <div className="mb-4">
@@ -150,8 +151,7 @@ export default function ProfileHero({ showDescription = true, isClickable = fals
             target="_blank"
             rel="noopener noreferrer"
             className="p-3 bg-surface-elevated rounded-full hover:bg-interactive-primary/10 transition-all duration-300 text-tertiary hover:text-primary shadow-md hover:shadow-lg"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
+            {...hoverScale}
           >
             <GitHubIcon className="w-5 h-5" />
           </motion.a>
@@ -160,21 +160,19 @@ export default function ProfileHero({ showDescription = true, isClickable = fals
             target="_blank"
             rel="noopener noreferrer"
             className="p-3 bg-surface-elevated rounded-full hover:bg-interactive-primary/10 transition-all duration-300 text-tertiary hover:text-blue-500 shadow-md hover:shadow-lg"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
+            {...hoverScale}
           >
             <XIcon className="w-5 h-5" />
           </motion.a>
           <motion.a
             href="#"
             className="p-3 bg-surface-elevated rounded-full hover:bg-interactive-primary/10 transition-all duration-300 text-tertiary hover:text-primary shadow-md hover:shadow-lg"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
+            {...hoverScale}
           >
             <Globe className="w-5 h-5" />
           </motion.a>
         </div>
-      </motion.div>
-    </motion.div>
+      </AnimatedContainer>
+    </AnimatedContainer>
   );
 }
