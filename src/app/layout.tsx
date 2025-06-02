@@ -18,8 +18,8 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.void2610.dev'),
   title: "void2610",
-  description: "void2610によるゲーム開発とソフトウェアエンジニアリングプロジェクトを紹介するポートフォリオサイト",
-  keywords: ["ゲーム開発", "ソフトウェアエンジニアリング", "ポートフォリオ", "Unity", "React", "Next.js"],
+  description: "void2610の公式ホームページ。これまでの制作物を紹介しています。",
+  keywords: ["ゲーム開発", "ポートフォリオ", "Unity", "C#", "インディーゲーム", "Indie Game", "Game Development", "void2610"],
   authors: [{ name: "void2610" }],
   creator: "void2610",
   openGraph: {
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     url: "https://www.void2610.dev",
     siteName: "void2610",
     title: "void2610",
-    description: "void2610によるゲーム開発とソフトウェアエンジニアリングプロジェクトを紹介するポートフォリオサイト",
+    description: "void2610の公式ホームページ。これまでの制作物を紹介しています。",
     images: [
       {
         url: "https://www.void2610.dev/images/void2610_ca.png",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     site: "@void2610",
     creator: "@void2610",
     title: "void2610",
-    description: "void2610によるゲーム開発とソフトウェアエンジニアリングプロジェクトを紹介するポートフォリオサイト",
+    description: "void2610の公式ホームページ。これまでの制作物を紹介しています。",
     images: ["https://www.void2610.dev/images/void2610_ca.png"],
   },
   robots: {
