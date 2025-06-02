@@ -149,7 +149,7 @@ export default function ProfileHero({ showDescription = true, isClickable = fals
             href="https://github.com/void2610"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-3 bg-surface-elevated rounded-full hover:bg-interactive-primary/10 transition-colors text-tertiary hover:text-primary"
+            className="p-3 bg-surface-elevated rounded-full hover:bg-interactive-primary/10 transition-all duration-300 text-tertiary hover:text-primary shadow-md hover:shadow-lg"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -159,7 +159,7 @@ export default function ProfileHero({ showDescription = true, isClickable = fals
             href="https://twitter.com/void2610"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-3 bg-surface-elevated rounded-full hover:bg-interactive-primary/10 transition-colors text-tertiary hover:text-blue-500"
+            className="p-3 bg-surface-elevated rounded-full hover:bg-interactive-primary/10 transition-all duration-300 text-tertiary hover:text-blue-500 shadow-md hover:shadow-lg"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -167,7 +167,7 @@ export default function ProfileHero({ showDescription = true, isClickable = fals
           </motion.a>
           <motion.a
             href="#"
-            className="p-3 bg-surface-elevated rounded-full hover:bg-interactive-primary/10 transition-colors text-tertiary hover:text-primary"
+            className="p-3 bg-surface-elevated rounded-full hover:bg-interactive-primary/10 transition-all duration-300 text-tertiary hover:text-primary shadow-md hover:shadow-lg"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
           >

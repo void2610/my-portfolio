@@ -39,11 +39,15 @@ export default function ContactItem({
     <motion.a
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
+      transition={{ 
+        opacity: { duration: 0.6, delay: 0.4 + index * 0.1 },
+        y: { duration: 0.6, delay: 0.4 + index * 0.1 },
+        scale: { type: "spring", stiffness: 400, damping: 15 }
+      }}
       href={href}
       target={target}
       rel={rel}
-      className="flex items-center gap-6 p-6 bg-surface-elevated rounded-xl hover:bg-interactive-primary/10 transition-all duration-300 group"
+      className="flex items-center gap-6 p-6 bg-surface-elevated rounded-xl hover:bg-interactive-primary/10 transition-all duration-300 group shadow-lg hover:shadow-xl"
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
     >
