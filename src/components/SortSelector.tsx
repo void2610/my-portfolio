@@ -77,7 +77,7 @@ export default function SortSelector({ value, onChange }: SortSelectorProps) {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: -10 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
-              className="absolute right-0 mt-2 w-64 bg-surface dark:bg-gray-800 backdrop-blur-sm border border-border-secondary rounded-xl shadow-xl overflow-hidden z-50"
+              className="absolute right-0 mt-2 w-64 max-w-[calc(100vw-2rem)] bg-surface dark:bg-gray-800 backdrop-blur-sm border border-border-secondary rounded-xl shadow-xl overflow-hidden z-50"
             >
               {sortOptions.map((option, index) => {
                 const Icon = option.icon;

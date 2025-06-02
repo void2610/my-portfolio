@@ -69,7 +69,7 @@ export default function TagFilter({ tags, tagCounts, selectedTags, onChange }: T
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: -10 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
-              className="absolute right-0 mt-2 w-72 max-h-96 bg-surface dark:bg-gray-800 backdrop-blur-sm border border-border-secondary rounded-xl shadow-xl overflow-hidden z-50"
+              className="absolute left-0 sm:left-auto sm:right-0 mt-2 w-72 max-w-[calc(100vw-2rem)] max-h-96 bg-surface dark:bg-gray-800 backdrop-blur-sm border border-border-secondary rounded-xl shadow-xl overflow-hidden z-50"
             >
               {/* ヘッダー */}
               <div className="px-4 py-3 border-b border-border-secondary">

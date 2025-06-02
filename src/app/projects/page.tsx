@@ -20,18 +20,14 @@ function ProjectsContent() {
     if (scrollTo) {
       // Wait for the page to load and then scroll to the project
       setTimeout(() => {
-        const projectElement = document.getElementById(`project-${scrollTo}`);
+        // Sanitize the title the same way ProjectCard does
+        const sanitizedId = `project-${scrollTo.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}`;
+        const projectElement = document.getElementById(sanitizedId);
         if (projectElement) {
           projectElement.scrollIntoView({ 
             behavior: 'smooth', 
             block: 'center' 
           });
-          
-          // Add a highlight effect
-          projectElement.classList.add('ring-2', 'ring-interactive-primary', 'ring-offset-2');
-          setTimeout(() => {
-            projectElement.classList.remove('ring-2', 'ring-interactive-primary', 'ring-offset-2');
-          }, 2000);
         }
       }, 500);
     }
