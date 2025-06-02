@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { Tag, X } from "lucide-react";
+import { Tag } from "lucide-react";
 
 interface TagFilterProps {
   tags: string[];
@@ -145,33 +145,6 @@ export default function TagFilter({ tags, tagCounts, selectedTags, onChange }: T
                 })}
               </div>
 
-              {/* 選択されたタグのプレビュー */}
-              {selectedTags.length > 0 && (
-                <div className="px-4 py-3 border-t border-border-secondary bg-surface-elevated/50">
-                  <p className="text-xs text-muted mb-2">選択中のタグ:</p>
-                  <div className="flex flex-wrap gap-1">
-                    {selectedTags.map(tag => (
-                      <motion.span
-                        key={tag}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        className="inline-flex items-center gap-1 px-2 py-0.5 bg-interactive-primary/10 text-interactive-primary rounded-full text-xs"
-                      >
-                        {tag}
-                        <button
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            toggleTag(tag);
-                          }}
-                          className="hover:bg-interactive-primary/20 rounded-full p-0.5"
-                        >
-                          <X className="w-2.5 h-2.5" />
-                        </button>
-                      </motion.span>
-                    ))}
-                  </div>
-                </div>
-              )}
             </motion.div>
           </>
         )}
