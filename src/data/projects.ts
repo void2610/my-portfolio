@@ -20,6 +20,7 @@ export const projects: Project[] = [
     url: "https://unityroom.com/games/ivy-survivor",
     publishedDate: "2025-04-21",
     imageUrl: "/images/projects/ivy-survivor.png",
+    featured: true,
   },
   {
     title: "Calm Fishing",
@@ -29,6 +30,7 @@ export const projects: Project[] = [
     url: "https://unityroom.com/games/calm-fishing",
     publishedDate: "2024-12-29",
     imageUrl: "/images/projects/calm-fishing.png",
+    featured: true,
   },
   {
     title: "送り盆",
@@ -38,6 +40,7 @@ export const projects: Project[] = [
     url: "https://unityroom.com/games/okuribon",
     publishedDate: "2024-08-17",
     imageUrl: "/images/projects/okuribon.png",
+    featured: true,
   },
   {
     title: "Touchstone",
@@ -47,6 +50,7 @@ export const projects: Project[] = [
     url: "https://unityroom.com/games/touchstone",
     publishedDate: "2024-06-23",
     imageUrl: "/images/projects/touchstone.png",
+    featured: true,
   },
   {
     title: "Sumo Survivors!",
@@ -56,6 +60,7 @@ export const projects: Project[] = [
     url: "https://unityroom.com/games/sumo_survivors",
     publishedDate: "2024-02-11",
     imageUrl: "/images/projects/sumo-survivors.png",
+    featured: true,
   },
   {
     title: "Coming Soon...",
@@ -74,6 +79,7 @@ export const projects: Project[] = [
     url: "https://github.com/void2610/Simple-YouTube-Player",
     publishedDate: "2023-06-17",
     imageUrl: "/images/projects/simple-youtube-player.png",
+    featured: true,
   },
   {
     title: "ACVI-Randomizer",
