@@ -2,19 +2,22 @@
 
 import { motion } from "framer-motion";
 import ContactItem from "@/components/ContactItem";
+import GradientText from "@/components/GradientText";
 import { contactMethods } from "@/data/contact";
 
 export default function Contact() {
   return (
     <div className="max-w-3xl mx-auto px-4 py-16 min-h-[calc(100vh-150px)]">
-      <motion.h1 
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-12 text-center"
+        className="mb-12 text-center"
       >
-        Contact
-      </motion.h1>
+        <GradientText as="h1" size="2xl">
+          Contact
+        </GradientText>
+      </motion.div>
       
       <motion.div
         initial={{ opacity: 0, y: 20 }}

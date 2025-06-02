@@ -1,19 +1,22 @@
 "use client";
 
 import { motion } from "framer-motion";
+import GradientText from "./GradientText";
 import { timelineData } from "@/data/timeline";
 
 export default function Timeline() {
   return (
     <div className="mt-20">
-      <motion.h2
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.8 }}
-        className="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent"
+        className="text-center mb-12"
       >
-        Timeline
-      </motion.h2>
+        <GradientText as="h2" size="xl">
+          Timeline
+        </GradientText>
+      </motion.div>
 
       <div className="relative max-w-4xl mx-auto pl-4 md:pl-0">
         {/* 背景の縦線 */}

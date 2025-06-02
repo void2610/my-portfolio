@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import AnimatedContainer from "@/components/animations/AnimatedContainer";
 import SocialLinks from "./SocialLinks";
+import GradientText from "./GradientText";
 import { scaleIn, hoverScale } from "@/config/animations";
 
 interface ProfileHeroProps {
@@ -125,9 +126,9 @@ export default function ProfileHero({ showDescription = true, isClickable = fals
         className="flex-1 text-center md:text-left"
       >
         <div className="mb-4">
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+          <GradientText as="h1" size="2xl">
             void2610
-          </h1>
+          </GradientText>
           <p className="text-lg text-tertiary mt-2">
             Shuya IZUMI
           </p>
