@@ -8,6 +8,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm run build` - Build the application for production
 - `npm run start` - Start production server
 - `npm run lint` - Run ESLint to check code quality
+- `npm run typecheck` - Run TypeScript type checking (if available)
 
 ## Project Architecture
 
@@ -17,52 +18,63 @@ This is a Next.js 15 portfolio website for a game creator and software engineer 
 - **Next.js 15**: App Router with TypeScript and strict type checking
 - **HeroUI**: Primary UI component library with built-in dark mode support
 - **Framer Motion**: Animations, page transitions, and 3D card flip effects
-- **Tailwind CSS v4**: Utility-first styling with PostCSS integration
+- **Tailwind CSS**: Utility-first styling with PostCSS integration
 - **next-themes**: Theme management for light/dark mode switching
 - **Lucide React**: Icon library for consistent iconography
 
 ### Key Architectural Patterns
 
-**Unified Color System**: Centralized CSS custom properties in `globals.css` with semantic color tokens for consistent theming:
-- `--text-primary`, `--text-secondary`, `--text-tertiary`, `--text-muted` for text hierarchy
-- `--surface`, `--surface-elevated` for backgrounds and cards
-- `--border-primary`, `--border-secondary` for consistent borders
-- `--interactive-primary`, `--interactive-secondary` for buttons and links
-- Automatic light/dark theme switching via CSS variables with smooth 0.3s transitions
+**Data Architecture**:
+- Centralized data management in `src/data/`:
+  - `projects.ts` - Project showcase data with platform-specific metadata
+  - `timeline.ts` - Timeline events for About page
+  - `experience.ts` - Work experience entries
+  - `skills.ts` - Technical skills with proficiency levels
+  - `contact.ts` - Contact methods and social links
+- All data files use TypeScript interfaces for type safety
 
-**Component Architecture**:
-- `src/components/providers.tsx` - Global providers wrapping HeroUI and next-themes
-- `src/components/Header.tsx` - Responsive navigation with mobile hamburger menu and SNS links (@void2610)
-- `src/components/ThemeToggle.tsx` - Light/dark mode switcher integrated with next-themes
-- `src/app/layout.tsx` - Root layout with provider setup, Geist font configuration, and suppressHydrationWarning
+**Component Organization**:
+- **Shared Components** (`src/components/`):
+  - `ContactItem`, `ExperienceItem`, `SkillItem` - Reusable list items with consistent animations
+  - `ProjectCard` - 3D flip card with platform-specific styling
+  - `ProjectCarousel` - Featured projects carousel on homepage
+  - `TagFilter`, `SortSelector` - Dropdown UI components with mobile-optimized positioning
+- **Icon Components** (`src/components/icons/`):
+  - Custom SVG icons (GitHubIcon, XIcon, SteamIcon, UnityroomIcon)
+  - All icons use `currentColor` for theme compatibility
 
-**Project Card System** (`src/app/projects/page.tsx`):
-- **3D Flip Animation**: Click-to-flip cards using Framer Motion and CSS 3D transforms
-- **Platform-Specific Styling**: GitHub (gray), unityroom (#2E93FF), Steam (dark blue gradients)
-- **Front Side**: Full image display with title and platform icon overlay
-- **Back Side**: Blurred background with comprehensive project details, statistics, and technologies
-- **Horizontal Layout**: Landscape-oriented cards optimized for information density
-- **Responsive Grid**: 1 column on mobile, 2 columns on large screens
+**Unified Color System**: 
+- CSS custom properties in `globals.css` for semantic color tokens
+- Automatic light/dark theme switching via CSS variables
+- Shadow utilities work across both themes (e.g., `shadow-lg hover:shadow-xl`)
 
-**Animation System**:
-- Global smooth transitions (0.3s ease) for all color properties
-- Custom CSS classes for 3D transformations (.perspective-1000, .preserve-3d, .backface-hidden)
-- Staggered entry animations using Framer Motion with index-based delays
-- Text truncation utilities (.line-clamp-2, .line-clamp-3)
+**Mobile-First Responsive Design**:
+- Hamburger menu with slide-down animation
+- Dropdown menus adjust position on mobile (left-aligned) vs desktop (right-aligned)
+- Touch-friendly interactions with appropriate tap targets
 
-**Theme Integration**: 
-- `next-themes` configured with `disableTransitionOnChange={false}` for smooth theme switching
-- Custom storage key 'portfolio-theme' with light default
-- All components use CSS custom properties for automatic theme updates
+**Animation Patterns**:
+- Staggered animations using index-based delays
+- Spring physics for natural motion (e.g., `transition={{ type: "spring", stiffness: 400 }}`)
+- 3D card flips with preserve-3d and backface-hidden
+- Consistent hover states with scale and shadow transitions
 
-**TypeScript Configuration**:
-- Path mapping (`@/*` → `./src/*`) for clean imports
-- Strict type checking with React 19 and Next.js 15 types
-- Interface-driven development for Project data structure with optional backInfo for detailed card content
+**Project Features**:
+- **Projects Page**: 
+  - Filter by tags with real-time project count
+  - Sort by date or platform
+  - Auto-scroll to project from carousel selection
+- **Contact Page**: 
+  - Animated contact cards with platform-specific gradients
+  - Consistent shadow styling for clickability
+- **About Page**:
+  - ProfileHero component with avatar and social links
+  - Animated skill bars and experience timeline
 
-**Content Management**:
-- Projects sorted by publishedDate (newest first) with platform-specific metadata
-- Platform configuration object for colors, icons, and styling per platform
-- Structured project data with stats (stars, downloads, contributors), features, and technology stacks
+**Important Implementation Details**:
+- When creating IDs from titles, sanitize with: `title.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()`
+- Dropdown components require `max-w-[calc(100vw-2rem)]` for mobile viewport constraints
+- Use `suppressHydrationWarning` on html and body tags for theme switching
+- Icon components should accept className prop for flexible sizing
 
-The project emphasizes visual appeal, smooth interactions, and responsive design while maintaining clean code architecture and type safety.
+The project emphasizes visual polish, smooth interactions, and maintainable component architecture while ensuring excellent mobile experience.

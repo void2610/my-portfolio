@@ -3,6 +3,10 @@
 import { motion } from "framer-motion";
 import Timeline from "@/components/Timeline";
 import ProfileHero from "@/components/ProfileHero";
+import ExperienceItem from "@/components/ExperienceItem";
+import SkillItem from "@/components/SkillItem";
+import { experiences } from "@/data/experience";
+import { skills } from "@/data/skills";
 
 export default function About() {
   return (
@@ -22,32 +26,13 @@ export default function About() {
         <div>
           <h2 className="text-2xl font-semibold text-primary mb-6">Skills</h2>
           <div className="space-y-4">
-            {[
-              { name: "Game Development", level: 90 },
-              { name: "Unity / C#", level: 85 },
-              { name: "Web Development", level: 80 },
-              { name: "React / TypeScript", level: 85 },
-              { name: "Software Engineering", level: 75 },
-            ].map((skill, index) => (
-              <motion.div
+            {skills.map((skill, index) => (
+              <SkillItem
                 key={skill.name}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3, delay: 0.5 + index * 0.1 }}
-              >
-                <div className="flex justify-between mb-2">
-                  <span className="text-secondary">{skill.name}</span>
-                  <span className="text-muted text-sm">{skill.level}%</span>
-                </div>
-                <div className="h-2 bg-surface-elevated rounded-full overflow-hidden">
-                  <motion.div
-                    className="h-full bg-gradient-to-r from-blue-500 to-purple-500"
-                    initial={{ width: 0 }}
-                    animate={{ width: `${skill.level}%` }}
-                    transition={{ duration: 1, delay: 0.7 + index * 0.1 }}
-                  />
-                </div>
-              </motion.div>
+                name={skill.name}
+                level={skill.level}
+                index={index}
+              />
             ))}
           </div>
         </div>
@@ -55,47 +40,15 @@ export default function About() {
         <div>
           <h2 className="text-2xl font-semibold text-primary mb-6">Experience</h2>
           <div className="space-y-6">
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-              className="border-l-2 border-interactive-primary/30 pl-6"
-            >
-              <h3 className="font-semibold text-primary">MergeRogue(仮称) 開発</h3>
-              <p className="text-sm text-muted mb-2">2024年8月 - 現在</p>
-              <p className="text-secondary">
-                Steamでの有料販売を目指して開発中。
-                本格的なインディーゲームの制作に挑戦。
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.7 }}
-              className="border-l-2 border-interactive-primary/30 pl-6"
-            >
-              <h3 className="font-semibold text-primary">燈株式会社 インターン</h3>
-              <p className="text-sm text-muted mb-2">2023年9月 - 現在</p>
-              <p className="text-secondary">
-                TypeScriptやPythonを用いたAIプロダクトの開発に従事。
-                最新のWeb技術とAI技術の実践的な経験を積む。
-              </p>
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.8 }}
-              className="border-l-2 border-interactive-primary/30 pl-6"
-            >
-              <h3 className="font-semibold text-primary">ゲーム開発活動</h3>
-              <p className="text-sm text-muted mb-2">2024年1月 - 現在</p>
-              <p className="text-secondary">
-                unity1weekをはじめとしたゲームジャムに積極的に参加。
-                短期間での企画・開発・リリースの経験を積む。
-              </p>
-            </motion.div>
+            {experiences.map((experience, index) => (
+              <ExperienceItem
+                key={index}
+                title={experience.title}
+                period={experience.period}
+                description={experience.description}
+                index={index}
+              />
+            ))}
           </div>
         </div>
       </motion.div>
