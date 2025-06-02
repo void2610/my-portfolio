@@ -19,11 +19,14 @@ export default function Timeline() {
         </GradientText>
       </motion.div>
 
-      <div className="relative max-w-4xl mx-auto pl-4 md:pl-0">
-        {/* 背景の縦線 */}
+      <div className="relative max-w-4xl mx-auto">
+        {/* 背景の縦線 - ノードの中心に合わせて調整 */}
         <div 
-          className="absolute left-8 md:left-4 top-1 w-0.5 bg-gray-300 dark:bg-gray-700"
-          style={{ height: `calc(100% - 1.25rem)` }}
+          className="absolute top-1 w-0.5 bg-gray-300 dark:bg-gray-700"
+          style={{ 
+            left: '15px', // ノードの中心(16px)に線の中心を合わせるため、線の左端を15pxに配置
+            height: `calc(100% - 1.25rem)` 
+          }}
         />
         
         {/* タイムラインアイテム */}
@@ -36,15 +39,15 @@ export default function Timeline() {
               transition={{ duration: DURATION.MEDIUM, delay: 0.9 + index * STAGGER.MEDIUM }}
               className="relative flex items-start pb-12 last:pb-0"
             >
-              {/* ノード */}
+              {/* ノード - 常に16px位置に固定 */}
               <motion.div 
-                className="absolute left-8 md:left-4 top-1 w-4 h-4 rounded-full bg-gray-300 dark:bg-gray-700 transform -translate-x-1/2 z-10"
+                className="absolute left-4 top-1 w-4 h-4 rounded-full bg-gray-300 dark:bg-gray-700 transform -translate-x-1/2 z-10"
                 whileHover={{ scale: SCALE.LARGE }}
                 transition={SPRING.STANDARD}
               />
               
-              {/* コンテンツ */}
-              <div className="ml-16 md:ml-12">
+              {/* コンテンツ - 常に48px左マージン */}
+              <div className="ml-12">
                 <motion.div
                   className="group"
                   whileHover={{ x: 4 }}
