@@ -18,17 +18,17 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.void2610.dev'),
   title: "void2610",
-  description: "Portfolio website showcasing game development and software engineering projects by void2610",
-  keywords: ["game development", "software engineering", "portfolio", "unity", "react", "next.js"],
+  description: "void2610によるゲーム開発とソフトウェアエンジニアリングプロジェクトを紹介するポートフォリオサイト",
+  keywords: ["ゲーム開発", "ソフトウェアエンジニアリング", "ポートフォリオ", "Unity", "React", "Next.js"],
   authors: [{ name: "void2610" }],
   creator: "void2610",
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "ja_JP",
     url: "https://www.void2610.dev",
     siteName: "void2610",
     title: "void2610",
-    description: "Portfolio website showcasing game development and software engineering projects by void2610",
+    description: "void2610によるゲーム開発とソフトウェアエンジニアリングプロジェクトを紹介するポートフォリオサイト",
     images: [
       {
         url: "https://www.void2610.dev/images/void2610_ca.png",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     site: "@void2610",
     creator: "@void2610",
     title: "void2610",
-    description: "Portfolio website showcasing game development and software engineering projects by void2610",
+    description: "void2610によるゲーム開発とソフトウェアエンジニアリングプロジェクトを紹介するポートフォリオサイト",
     images: ["https://www.void2610.dev/images/void2610_ca.png"],
   },
   robots: {
@@ -52,13 +52,6 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-    },
-  },
-  alternates: {
-    languages: {
-      'en': '/en',
-      'ja': '/ja',
-      'x-default': '/',
     },
   },
 };
