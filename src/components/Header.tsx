@@ -4,8 +4,8 @@ import Link from "next/link";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ThemeToggle from "./ThemeToggle";
-import { XIcon } from "@/components/icons/XIcon";
-import GitHubIcon from "@/components/icons/GitHubIcon";
+import SocialLinks from "./SocialLinks";
+import { mainNavigation } from "@/config/navigation";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,18 +27,15 @@ export default function Header() {
             
             <div className="flex items-center space-x-4 md:space-x-8">
               <nav className="hidden sm:flex space-x-4 md:space-x-8">
-                <Link href="/" className="text-primary hover:text-secondary transition-colors font-medium">
-                  Home
-                </Link>
-                <Link href="/about" className="text-primary hover:text-secondary transition-colors font-medium">
-                  About
-                </Link>
-                <Link href="/projects" className="text-primary hover:text-secondary transition-colors font-medium">
-                  Projects
-                </Link>
-                <Link href="/contact" className="text-primary hover:text-secondary transition-colors font-medium">
-                  Contact
-                </Link>
+                {mainNavigation.map((item) => (
+                  <Link 
+                    key={item.href}
+                    href={item.href} 
+                    className="text-primary hover:text-secondary transition-colors font-medium"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
               </nav>
               
               <div className="flex items-center space-x-3">
@@ -67,25 +64,7 @@ export default function Header() {
                 
                 <ThemeToggle />
                 
-                <a
-                  href="https://twitter.com/void2610"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-tertiary hover:text-blue-500 transition-colors"
-                  aria-label="Twitter"
-                >
-                  <XIcon className="w-5 h-5" />
-                </a>
-                
-                <a
-                  href="https://github.com/void2610"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-tertiary hover:text-primary transition-colors"
-                  aria-label="GitHub"
-                >
-                  <GitHubIcon className="w-5 h-5" />
-                </a>
+                <SocialLinks variant="header" />
               </div>
             </div>
           </div>
@@ -115,12 +94,7 @@ export default function Header() {
               className="fixed top-16 left-0 right-0 sm:hidden bg-surface border-b border-primary shadow-2xl z-50 overflow-hidden"
             >
             <nav className="max-w-7xl mx-auto px-4 py-4 space-y-1">
-              {[
-                { href: "/", label: "Home" },
-                { href: "/about", label: "About" },
-                { href: "/projects", label: "Projects" },
-                { href: "/contact", label: "Contact" },
-              ].map((item, index) => (
+              {mainNavigation.map((item, index) => (
                 <motion.div
                   key={item.href}
                   initial={{ opacity: 0, y: -10 }}

@@ -1,12 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Globe } from "lucide-react";
-import GitHubIcon from "@/components/icons/GitHubIcon";
-import { XIcon } from "@/components/icons/XIcon";
 import Link from "next/link";
 import Image from "next/image";
 import AnimatedContainer from "@/components/animations/AnimatedContainer";
+import SocialLinks from "./SocialLinks";
 import { scaleIn, hoverScale } from "@/config/animations";
 
 interface ProfileHeroProps {
@@ -145,33 +143,11 @@ export default function ProfileHero({ showDescription = true, isClickable = fals
         )}
         
         {/* Social Links */}
-        <div className="flex gap-4 justify-center md:justify-start">
-          <motion.a
-            href="https://github.com/void2610"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 bg-surface-elevated rounded-full hover:bg-interactive-primary/10 transition-all duration-300 text-tertiary hover:text-primary shadow-md hover:shadow-lg"
-            {...hoverScale}
-          >
-            <GitHubIcon className="w-5 h-5" />
-          </motion.a>
-          <motion.a
-            href="https://twitter.com/void2610"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 bg-surface-elevated rounded-full hover:bg-interactive-primary/10 transition-all duration-300 text-tertiary hover:text-blue-500 shadow-md hover:shadow-lg"
-            {...hoverScale}
-          >
-            <XIcon className="w-5 h-5" />
-          </motion.a>
-          <motion.a
-            href="#"
-            className="p-3 bg-surface-elevated rounded-full hover:bg-interactive-primary/10 transition-all duration-300 text-tertiary hover:text-primary shadow-md hover:shadow-lg"
-            {...hoverScale}
-          >
-            <Globe className="w-5 h-5" />
-          </motion.a>
-        </div>
+        <SocialLinks 
+          variant="profile" 
+          showShadow={true} 
+          className="justify-center md:justify-start"
+        />
       </AnimatedContainer>
     </AnimatedContainer>
   );
