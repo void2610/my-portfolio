@@ -7,6 +7,7 @@ import ProjectCard from "@/components/ProjectCard";
 import SortSelector from "@/components/SortSelector";
 import TagFilter from "@/components/TagFilter";
 import GradientText from "@/components/GradientText";
+import { DURATION, DELAY } from "@/config/animations";
 import { projects } from "@/data/projects";
 
 type SortOption = "date-desc" | "date-asc" | "platform";
@@ -71,7 +72,7 @@ function ProjectsContent() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: DURATION.DEFAULT }}
         className="text-center mb-12"
       >
         <GradientText as="h1" size="2xl" className="mb-4">
@@ -86,7 +87,7 @@ function ProjectsContent() {
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, delay: 0.1 }}
+        transition={{ duration: DURATION.MEDIUM, delay: DELAY.TINY }}
         className="flex justify-end items-center gap-3 mb-8"
       >
         {/* Tag Filter */}

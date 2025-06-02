@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import ContactItem from "@/components/ContactItem";
 import GradientText from "@/components/GradientText";
+import { DURATION, DELAY } from "@/config/animations";
 import { contactMethods } from "@/data/contact";
 
 export default function Contact() {
@@ -11,7 +12,7 @@ export default function Contact() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: DURATION.DEFAULT }}
         className="mb-12 text-center"
       >
         <GradientText as="h1" size="2xl">
@@ -22,7 +23,7 @@ export default function Contact() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
+        transition={{ duration: DURATION.DEFAULT, delay: DELAY.SMALL }}
         className="text-center mb-16"
       >
         <p className="text-xl text-secondary max-w-2xl mx-auto">

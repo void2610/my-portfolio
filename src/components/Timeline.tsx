@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import GradientText from "./GradientText";
+import { DURATION, DELAY, SPRING, SCALE, STAGGER } from "@/config/animations";
 import { timelineData } from "@/data/timeline";
 
 export default function Timeline() {
@@ -10,7 +11,7 @@ export default function Timeline() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.8 }}
+        transition={{ duration: DURATION.DEFAULT, delay: DELAY.EXTRA_LARGE }}
         className="text-center mb-12"
       >
         <GradientText as="h2" size="xl">
@@ -32,14 +33,14 @@ export default function Timeline() {
               key={index}
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.9 + index * 0.1 }}
+              transition={{ duration: DURATION.MEDIUM, delay: 0.9 + index * STAGGER.MEDIUM }}
               className="relative flex items-start pb-12 last:pb-0"
             >
               {/* ノード */}
               <motion.div 
                 className="absolute left-8 md:left-4 top-1 w-4 h-4 rounded-full bg-gray-300 dark:bg-gray-600 transform -translate-x-1/2 z-10"
-                whileHover={{ scale: 1.3 }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                whileHover={{ scale: SCALE.LARGE }}
+                transition={SPRING.STANDARD}
               />
               
               {/* コンテンツ */}
@@ -47,7 +48,7 @@ export default function Timeline() {
                 <motion.div
                   className="group"
                   whileHover={{ x: 4 }}
-                  transition={{ duration: 0.2 }}
+                  transition={{ duration: DURATION.FAST }}
                 >
                   {/* 日付 */}
                   <span className="text-sm font-medium text-muted mb-1 block">

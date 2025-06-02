@@ -9,6 +9,7 @@ import { Project } from "@/data/projects";
 import { platformConfig } from "@/config/platforms";
 import { formatDate } from "@/utils/date";
 import { useImageError } from "@/hooks/useImageError";
+import { DURATION, SPRING, SCALE, STAGGER, EASING } from "@/config/animations";
 
 interface ProjectCardProps {
   project: Project;
@@ -29,20 +30,20 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       id={sanitizedId}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      transition={{ duration: DURATION.MEDIUM, delay: index * STAGGER.MEDIUM }}
       className="relative h-[320px] perspective-1000"
       onClick={() => setIsFlipped(!isFlipped)}
       whileHover={{ 
         rotateX: 8,
         rotateY: 12,
-        scale: 1.02,
-        transition: { duration: 0.3 }
+        scale: SCALE.SUBTLE,
+        transition: { duration: DURATION.QUICK }
       }}
     >
       <motion.div
         className="relative w-full h-full cursor-pointer preserve-3d"
         animate={{ rotateX: isFlipped ? 180 : 0 }}
-        transition={{ duration: 0.4, ease: "easeInOut" }}
+        transition={{ duration: DURATION.MEDIUM, ease: EASING.EASE_IN_OUT }}
       >
         {/* Front Side */}
         <Card className={`absolute inset-0 overflow-hidden border-2 rounded-2xl backface-hidden border-transparent tilted-card-shadow`}>
@@ -69,11 +70,11 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               className={`absolute top-4 right-4 w-10 h-10 rounded-xl bg-gradient-to-br ${config.color} flex items-center justify-center shadow-lg backdrop-blur-sm cursor-pointer`}
               onClick={(e) => e.stopPropagation()}
               whileHover={{ 
-                scale: 1.1,
+                scale: SCALE.MEDIUM,
                 rotate: 5,
-                transition: { duration: 0.2 }
+                transition: { duration: DURATION.FAST }
               }}
-              whileTap={{ scale: 0.95 }}
+              whileTap={{ scale: SCALE.TAP_DOWN }}
             >
               <Icon className="w-5 h-5 text-white" />
             </motion.a>
@@ -149,9 +150,9 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             {/* Footer */}
             <div className="pt-6 border-t border-white/20 mt-auto">
               <motion.div
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                whileHover={{ scale: SCALE.SLIGHT }}
+                whileTap={{ scale: SCALE.TAP_LIGHT }}
+                transition={SPRING.STANDARD}
               >
                 <Button
                   as="a"

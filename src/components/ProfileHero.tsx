@@ -6,7 +6,7 @@ import Image from "next/image";
 import AnimatedContainer from "@/components/animations/AnimatedContainer";
 import SocialLinks from "./SocialLinks";
 import GradientText from "./GradientText";
-import { scaleIn, hoverScale } from "@/config/animations";
+import { scaleIn, hoverScale, DURATION, DELAY, EASING } from "@/config/animations";
 
 interface ProfileHeroProps {
   showDescription?: boolean;
@@ -32,7 +32,7 @@ export default function ProfileHero({ showDescription = true, isClickable = fals
   return (
     <AnimatedContainer
       variant="fadeInUp"
-      duration={0.6}
+      duration={DURATION.DEFAULT}
       className="flex flex-col md:flex-row items-center gap-8"
     >
       {/* Avatar with Glow */}
@@ -40,7 +40,7 @@ export default function ProfileHero({ showDescription = true, isClickable = fals
         variants={scaleIn}
         initial="initial"
         animate="animate"
-        transition={{ duration: 0.5, delay: 0.2 }}
+        transition={{ duration: DURATION.MEDIUM, delay: DELAY.SMALL }}
         className="relative"
       >
         {/* ニューモーフィックな光と影のエフェクト */}
@@ -87,7 +87,7 @@ export default function ProfileHero({ showDescription = true, isClickable = fals
           transition={{
             duration: 3,
             repeat: Infinity,
-            ease: "easeInOut",
+            ease: EASING.EASE_IN_OUT,
           }}
         />
         
@@ -112,7 +112,7 @@ export default function ProfileHero({ showDescription = true, isClickable = fals
       <motion.div
         initial={{ opacity: 0, scaleY: 0 }}
         animate={{ opacity: 0.5, scaleY: 1 }}
-        transition={{ duration: 0.5, delay: 0.4 }}
+        transition={{ duration: DURATION.MEDIUM, delay: DELAY.LARGE }}
         className="hidden md:block mx-8 self-center"
       >
         <div className="w-[3px] h-56 bg-gray-300 dark:bg-gray-600 rounded-full" />
@@ -121,8 +121,8 @@ export default function ProfileHero({ showDescription = true, isClickable = fals
       {/* Profile Text */}
       <AnimatedContainer
         variant="fadeInRight"
-        duration={0.5}
-        delay={0.3}
+        duration={DURATION.MEDIUM}
+        delay={DELAY.MEDIUM}
         className="flex-1 text-center md:text-left"
       >
         <div className="mb-4">
