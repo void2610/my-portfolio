@@ -78,8 +78,31 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "void2610",
+    alternateName: "Shuya IZUMI",
+    url: "https://www.void2610.dev",
+    image: "https://www.void2610.dev/images/void2610.png",
+    description: "ゲームクリエイター / ソフトウェアエンジニア",
+    jobTitle: "Game Creator / Software Engineer",
+    sameAs: [
+      "https://twitter.com/void2610",
+      "https://github.com/void2610",
+      "https://steamcommunity.com/id/void2610/"
+    ],
+    knowsAbout: ["ゲーム開発", "Unity", "C#", "Web開発", "React", "TypeScript"],
+  };
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="ja" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
         suppressHydrationWarning
