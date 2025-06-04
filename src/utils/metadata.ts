@@ -38,7 +38,7 @@ export function createPageMetadata(
       siteName: "void2610.dev",
       images: [
         {
-          url: "https://www.void2610.dev/images/void2610_ca.png",
+          url: "https://www.void2610.dev/images/ogp-image.png",
           width: 1200,
           height: 630,
           alt: "void2610",
@@ -51,7 +51,7 @@ export function createPageMetadata(
       creator: "@void2610",
       title: fullTitle,
       description: options?.description || "void2610の公式ホームページ。これまでの制作物を紹介しています。",
-      images: ["https://www.void2610.dev/images/void2610_ca.png"],
+      images: ["https://www.void2610.dev/images/ogp-image.png"],
     },
   };
 }

@@ -18,7 +18,7 @@ export default function ProfileHero({ showDescription = true, isClickable = fals
     <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden bg-gradient-to-br from-blue-500 to-purple-600 p-0.5">
       <div className="w-full h-full rounded-full bg-surface overflow-hidden relative">
         <Image 
-          src="/images/void2610_ca.png" 
+          src="/images/void2610.png" 
           alt="void2610 avatar"
           fill
           className="object-cover"
