@@ -31,11 +31,11 @@ export const contactMethods: ContactMethod[] = [
     rel: "noopener noreferrer",
   },
   {
-    href: "mailto:void2610official@gmail.com",
+    href: "mailto:contact@void2610.dev",
     iconType: 'email',
     gradientFrom: "from-blue-500",
     gradientTo: "to-blue-600",
     platform: "Email",
-    handle: "void2610official@gmail.com",
+    handle: "contact@void2610.dev",
   },
 ];
