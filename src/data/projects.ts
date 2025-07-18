@@ -1,4 +1,4 @@
-export type Platform = 'github' | 'unityroom' | 'steam';
+export type Platform = 'github' | 'unityroom' | 'steam' | 'itch.io';
 
 export interface Project {
   title: string;
@@ -12,6 +12,16 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  {
+    title: "コンコロ幻界",
+    description: "転がす、感じる、クセになる。 BitSummitGameJam参加作品",
+    platform: "itch.io",
+    tags: ["Unity", "C#", "BitSummit"],
+    url: "https://bitsummit-gamejam.itch.io/konkoro",
+    publishedDate: "2025-07-17",
+    imageUrl: "/images/projects/konkoro.png",
+    featured: true,
+  },
   {
     title: "陽なたのアイビー",
     description: "ツタの魔物、アイビーちゃんに近寄ってくる魔物を狩って栄養にしよう！ unity1week テーマ「あい」,  unity1week TeamUp!!作品",

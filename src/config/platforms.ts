@@ -1,6 +1,7 @@
 import GitHubIcon from "@/components/icons/GitHubIcon";
 import SteamIcon from "@/components/icons/SteamIcon";
 import UnityroomIcon from "@/components/icons/UnityroomIcon";
+import { ItchIoIcon } from "@/components/icons/ItchIoIcon";
 import { Platform } from "@/data/projects";
 
 export const platformConfig = {
@@ -27,6 +28,14 @@ export const platformConfig = {
     bgColor: "bg-slate-50 dark:bg-slate-800/30",
     borderColor: "border-slate-300 dark:border-slate-600",
     textColor: "text-slate-700 dark:text-slate-300"
+  },
+  "itch.io": {
+    name: "itch.io",
+    icon: ItchIoIcon,
+    color: "from-[#fa5c5c] to-[#d94848]",
+    bgColor: "bg-red-50 dark:bg-red-900/20",
+    borderColor: "border-red-300 dark:border-red-600",
+    textColor: "text-[#fa5c5c] dark:text-red-300"
   }
 } as const satisfies Record<Platform, {
   name: string;
