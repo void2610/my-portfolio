@@ -59,8 +59,8 @@ function ProjectsContent() {
       case "date-asc":
         return new Date(a.publishedDate).getTime() - new Date(b.publishedDate).getTime();
       case "platform":
-        // プラットフォーム順: GitHub → unityroom → Steam
-        const platformOrder = { github: 0, unityroom: 1, steam: 2 };
+        // プラットフォーム順: GitHub → unityroom → Steam → itch.io
+        const platformOrder = { github: 0, unityroom: 1, steam: 2, 'itch.io': 3 };
         return platformOrder[a.platform] - platformOrder[b.platform];
       default:
         return 0;
