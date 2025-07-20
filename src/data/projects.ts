@@ -14,7 +14,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     title: "コンコロ幻界",
-    description: "転がす、感じる、クセになる。 BitSummitGameJam参加作品",
+    description: "転がす、感じる、クセになる。 BitSummitGameJam参加作品。ゲームデザイン賞・電撃ゲームメディア総編集長賞受賞",
     platform: "itch.io",
     tags: ["Unity", "C#", "BitSummit"],
     url: "https://bitsummit-gamejam.itch.io/konkoro",

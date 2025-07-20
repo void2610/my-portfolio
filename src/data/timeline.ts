@@ -6,6 +6,11 @@ export interface TimelineItem {
 
 export const timelineData: TimelineItem[] = [
   {
+    date: "2025年7月",
+    title: "BitSummit GameJam 2025で2冠達成",
+    description: "コンコロ幻界でメインプログラマを担当。ゲームデザイン賞・電撃ゲームメディア総編集長賞を受賞",
+  },
+  {
     date: "2024年8月",
     title: "MergeRogue(仮称) 開発開始",
     description: "Steamでの有料販売を目指して開発中",
