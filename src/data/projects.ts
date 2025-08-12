@@ -13,6 +13,16 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: "聖なる竜のストリエナ",
+    description: "夜の帳とともに、黒い竜が舞い降りた。『邪竜』と呼ばれたそれは、瞬く間に周囲を焼き払い、壊し尽くす。ストリエナの行動を決定し、市民を「撤退」させるカードバトルゲーム。unity1week テーマ「ひく」, unity1week Team-Up!!作品",
+    platform: "unityroom",
+    tags: ["Unity", "C#", "unity1week", "Team-Up!!"],
+    url: "https://unityroom.com/games/striena-the-holy-dragon",
+    publishedDate: "2025-12-15",
+    imageUrl: "/images/projects/striena-the-holy-dragon.png",
+    featured: true,
+  },
+  {
     title: "コンコロ幻界",
     description: "転がす、感じる、クセになる。 BitSummitGameJam参加作品。ゲームデザイン賞・電撃ゲームメディア総編集長賞受賞",
     platform: "itch.io",
@@ -26,7 +36,7 @@ export const projects: Project[] = [
     title: "陽なたのアイビー",
     description: "ツタの魔物、アイビーちゃんに近寄ってくる魔物を狩って栄養にしよう！ unity1week テーマ「あい」,  unity1week TeamUp!!作品",
     platform: "unityroom",
-    tags: ["Unity", "C#", "unity1week"],
+    tags: ["Unity", "C#", "unity1week", "Team-Up!!"],
     url: "https://unityroom.com/games/ivy-survivor",
     publishedDate: "2025-04-21",
     imageUrl: "/images/projects/ivy-survivor.png",
