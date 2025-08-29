@@ -13,12 +13,22 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: "VOID RED",
+    description: "記憶と感情を揺さぶる対話型カードゲーム。ゲームクリエイター甲子園 参加作品",
+    platform: "steam",
+    tags: ["Unity", "C#", "ゲームクリエイター甲子園"],
+    url: "https://void-red.void2610.dev/",
+    publishedDate: "2025-08-29",
+    imageUrl: "/images/projects/void-red.jpg",
+    featured: true,
+  },
+  {
     title: "聖なる竜のストリエナ",
     description: "夜の帳とともに、黒い竜が舞い降りた。『邪竜』と呼ばれたそれは、瞬く間に周囲を焼き払い、壊し尽くす。ストリエナの行動を決定し、市民を「撤退」させるカードバトルゲーム。unity1week テーマ「ひく」, unity1week Team-Up!!作品",
     platform: "unityroom",
     tags: ["Unity", "C#", "unity1week", "Team-Up!!"],
     url: "https://unityroom.com/games/striena-the-holy-dragon",
-    publishedDate: "2025-12-15",
+    publishedDate: "2025-08-10",
     imageUrl: "/images/projects/striena-the-holy-dragon.png",
     featured: true,
   },
