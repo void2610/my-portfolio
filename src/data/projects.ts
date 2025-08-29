@@ -13,6 +13,15 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: "VOID RED 宣伝用ページ",
+    description: "VOID REDの宣伝用ランディングページ。ゲームの魅力を効果的に伝えるWebサイト",
+    platform: "github",
+    tags: ["TypeScript", "Next.js"],
+    url: "https://github.com/void2610/void-red-promotion-page",
+    publishedDate: "2025-08-29",
+    imageUrl: "/images/projects/void-red-landing-page.png",
+  },
+  {
     title: "VOID RED",
     description: "記憶と感情を揺さぶる対話型カードゲーム。ゲームクリエイター甲子園 参加作品",
     platform: "steam",
@@ -105,7 +114,7 @@ export const projects: Project[] = [
     title: "Simple-YouTube-Player",
     description: "YouTubeのAPIを呼び出すことで、広告ブロッカーを使わなくとも広告なしでYouTube動画を再生できる、シンプルなYouTubeプレイヤー。",
     platform: "github",
-    tags: ["TypeScript", "React", "Tauri", "YouTube API"],
+    tags: ["TypeScript", "Tauri", "YouTube API"],
     url: "https://github.com/void2610/Simple-YouTube-Player",
     publishedDate: "2023-06-17",
     imageUrl: "/images/projects/simple-youtube-player.png",
@@ -115,7 +124,7 @@ export const projects: Project[] = [
     title: "ACVI-Randomizer",
     description: "Armored Core VI: Fires of Rubiconのアセンブルをランダムで生成するツール。Next.jsの練習用に作成。",
     platform: "github",
-    tags: ["TypeScript", "React", "Next.js"],
+    tags: ["TypeScript", "Next.js"],
     url: "https://github.com/void2610/ACVI-Randomizer",
     publishedDate: "2023-08-25",
     imageUrl: "/images/projects/acvi-randomizer.png",
@@ -169,7 +178,7 @@ export const projects: Project[] = [
     title: "2023年度福井高専祭HP",
     description: "福井高専の2023年度文化祭の公式ホームページ。GitHubやVercelを活用し、大人数での開発環境を構築。",
     platform: "github",
-    tags: ["typescript", "Next.js", "Vercel"],
+    tags: ["TypeScript", "Next.js"],
     url: "https://github.com/nitfc-festival-system-team/2023hp",
     publishedDate: "2023-10-27",
     imageUrl: "/images/projects/2023hp.png",
