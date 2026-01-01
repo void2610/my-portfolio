@@ -139,14 +139,14 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    title: "Coming Soon...",
+    title: "SIGMA COALESCE",
     description:
-      "Peglinとスイカゲームからインスパイアされた、デッキ構築型パズルローグライク。近日情報公開予定！",
+      "Peglinとスイカゲームからインスパイアされた、デッキ構築型パズルローグライク。現在開発停止中...",
     platform: "steam",
     tags: ["Unity", "C#"],
-    url: "https://store.steampowered.com/",
+    url: "https://store.steampowered.com/app/3646540/",
     publishedDate: "2025-07-01",
-    imageUrl: "/images/projects/coming-soon.png",
+    imageUrl: "/images/projects/sigma-coalesce.jpg",
   },
   {
     title: "Simple-YouTube-Player",
