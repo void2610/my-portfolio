@@ -31,7 +31,17 @@ export const projects: Project[] = [
     imageUrl: "/images/projects/garden-gnome.png",
   },
   {
-    title: "VOID RED 宣伝用ページ",
+    title: "本当に ×10 Bでいいのか？ ~そしてAと逃げる~",
+    description:
+      "イケメン2人から同時に告白された主人公が、奇妙な選択ループと予測不能なトラブルに巻き込まれていく短編アドベンチャーゲーム。",
+    platform: "unityroom",
+    tags: ["Unity", "C#"],
+    url: "https://unityroom.com/games/hontouni",
+    publishedDate: "2025-12-11",
+    imageUrl: "/images/projects/hontouni.png",
+  },
+  {
+    title: "VOID RED プロモーションページ",
     description:
       "VOID REDの宣伝用ランディングページ。ゲームの魅力を効果的に伝えるWebサイト",
     platform: "github",
