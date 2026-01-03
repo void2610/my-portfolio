@@ -4,14 +4,14 @@ import Image from "next/image";
 // OGP画像用のメタデータ
 export const metadata: Metadata = {
   title: "がんばれ！まおうちゃん！",
-  description: "がんばれ！まおうちゃん！ - void2610制作のゲーム",
+  description: "がんばれ！まおうちゃん！ - unityroomで無料公開中のゲーム",
   openGraph: {
     type: "website",
     locale: "ja_JP",
     url: "https://www.void2610.dev/image/maouchan",
     siteName: "void2610.dev",
     title: "がんばれ！まおうちゃん！",
-    description: "がんばれ！まおうちゃん！ - void2610制作のゲーム",
+    description: "がんばれ！まおうちゃん！ - unityroomで無料公開中のゲーム",
     images: [
       {
         url: "https://www.void2610.dev/images/maouchan.png",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     site: "@void2610",
     creator: "@void2610",
     title: "がんばれ！まおうちゃん！",
-    description: "がんばれ！まおうちゃん！ - void2610制作のゲーム",
+    description: "がんばれ！まおうちゃん！ - unityroomで無料公開中のゲーム",
     images: ["https://www.void2610.dev/images/maouchan.png"],
   },
 };
