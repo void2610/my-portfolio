@@ -14,6 +14,7 @@ export const mainNavigation: NavigationItem[] = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/projects", label: "Projects" },
+  { href: "/tools", label: "Tools" },
   { href: "/contact", label: "Contact" },
 ];
 
