@@ -124,6 +124,8 @@ export default function UnityroomRatingPage() {
             <div className="flex gap-4">
               <input
                 type="url"
+                name="unityroom-url"
+                autoComplete="on"
                 placeholder="https://unityroom.com/games/ゲームID"
                 value={url}
                 onChange={(e) => setUrl(e.target.value)}
