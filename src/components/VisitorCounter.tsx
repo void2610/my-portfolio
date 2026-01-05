@@ -9,10 +9,10 @@ function getCookie(name: string): string | null {
   return match ? match[2] : null;
 }
 
-// クッキーを設定（1年有効）
+// クッキーを設定（1日有効）
 function setCookie(name: string, value: string): void {
   const expires = new Date();
-  expires.setFullYear(expires.getFullYear() + 1);
+  expires.setDate(expires.getDate() + 1);
   document.cookie = `${name}=${value}; expires=${expires.toUTCString()}; path=/`;
 }
 
@@ -26,12 +26,12 @@ export default function VisitorCounter() {
     const recordAndFetchVisitor = async () => {
       try {
         // クッキーで訪問済みかチェック
-        const hasVisited = getCookie("visited");
+        const hasVisited = getCookie("visited_daily");
 
         // 未訪問の場合のみカウントを増やす
         if (!hasVisited) {
           await fetch("/api/visitor", { method: "POST" });
-          setCookie("visited", "1");
+          setCookie("visited_daily", "1");
         }
 
         // カウントを取得
