@@ -139,7 +139,7 @@ export default function UnityroomRatingPage() {
                 className="min-w-[100px] px-4 py-2 bg-surface-elevated text-primary rounded-lg flex items-center justify-center gap-2 shadow-md hover:shadow-lg disabled:opacity-50 border border-border-primary"
               >
                 {loading ? (
-                  <span className="w-4 h-4 border-2 border-border-secondary border-t-text-primary rounded-full animate-spin" />
+                  <span className="w-4 h-4 border-2 border-gray-300 dark:border-gray-600 border-t-gray-800 dark:border-t-white rounded-full animate-spin" />
                 ) : (
                   <Search className="w-4 h-4" />
                 )}
