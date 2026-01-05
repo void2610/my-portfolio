@@ -20,6 +20,7 @@ export const projects: Project[] = [
     url: "https://unityroom.com/games/maouchan",
     publishedDate: "2025-12-28",
     imageUrl: "/images/projects/maouchan.png",
+    featured: true,
   },
   {
     title: "庭小人の庭",
@@ -29,6 +30,7 @@ export const projects: Project[] = [
     url: "https://store.steampowered.com/app/4105720/",
     publishedDate: "2025-12-31",
     imageUrl: "/images/projects/garden-gnome.png",
+    featured: true,
   },
   {
     title: "本当に ×10 Bでいいのか？ ~そしてAと逃げる~",
@@ -114,7 +116,6 @@ export const projects: Project[] = [
     url: "https://unityroom.com/games/okuribon",
     publishedDate: "2024-08-17",
     imageUrl: "/images/projects/okuribon.png",
-    featured: true,
   },
   {
     title: "Touchstone",
@@ -125,7 +126,6 @@ export const projects: Project[] = [
     url: "https://unityroom.com/games/touchstone",
     publishedDate: "2024-06-23",
     imageUrl: "/images/projects/touchstone.png",
-    featured: true,
   },
   {
     title: "Sumo Survivors!",
@@ -136,7 +136,6 @@ export const projects: Project[] = [
     url: "https://unityroom.com/games/sumo_survivors",
     publishedDate: "2024-02-11",
     imageUrl: "/images/projects/sumo-survivors.png",
-    featured: true,
   },
   {
     title: "SIGMA COALESCE",
