@@ -136,10 +136,10 @@ export default function UnityroomRatingPage() {
               <button
                 onClick={fetchRating}
                 disabled={loading}
-                className="min-w-[100px] px-4 py-2 bg-primary text-white rounded-lg flex items-center justify-center gap-2 hover:opacity-90 disabled:opacity-50"
+                className="min-w-[100px] px-4 py-2 bg-surface-elevated text-primary rounded-lg flex items-center justify-center gap-2 shadow-md hover:shadow-lg disabled:opacity-50 border border-border-primary"
               >
                 {loading ? (
-                  <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                  <span className="w-4 h-4 border-2 border-border-secondary border-t-text-primary rounded-full animate-spin" />
                 ) : (
                   <Search className="w-4 h-4" />
                 )}
@@ -177,10 +177,8 @@ export default function UnityroomRatingPage() {
               <h2 className="text-xl font-semibold text-primary">評価データ</h2>
               <button
                 onClick={copyToClipboard}
-                className={`px-4 py-2 rounded-lg flex items-center gap-2 transition-colors ${
-                  copied
-                    ? "bg-success/20 text-success"
-                    : "bg-primary/20 text-primary hover:bg-primary/30"
+                className={`px-4 py-2 rounded-lg flex items-center gap-2 shadow-md hover:shadow-lg border border-border-primary transition-shadow ${
+                  copied ? "bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400" : "bg-surface-elevated text-primary"
                 }`}
               >
                 {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
