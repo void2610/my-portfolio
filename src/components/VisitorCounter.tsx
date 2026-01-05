@@ -19,6 +19,8 @@ function setCookie(name: string, value: string): void {
 // 訪問者カウンターコンポーネント
 export default function VisitorCounter() {
   const [visitorCount, setVisitorCount] = useState<number | null>(null);
+  const [showTooltip, setShowTooltip] = useState(false);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const recordAndFetchVisitor = async () => {
@@ -49,9 +51,24 @@ export default function VisitorCounter() {
   if (visitorCount === null) return null;
 
   return (
-    <span className="text-text-muted text-sm flex items-center gap-1">
-      <Eye className="w-4 h-4" />
-      {visitorCount.toLocaleString()} visitors
-    </span>
+    <>
+      <span
+        className="text-text-muted text-sm flex items-center gap-1 cursor-default"
+        onMouseEnter={() => setShowTooltip(true)}
+        onMouseLeave={() => setShowTooltip(false)}
+        onMouseMove={(e) => setMousePos({ x: e.clientX, y: e.clientY })}
+      >
+        <Eye className="w-4 h-4" />
+        {visitorCount.toLocaleString()} visitors
+      </span>
+      {showTooltip && (
+        <p
+          className="fixed px-3 py-1 text-xs text-primary bg-surface-elevated border border-border-primary rounded shadow-lg whitespace-nowrap pointer-events-none z-50"
+          style={{ left: mousePos.x + 12, top: mousePos.y - 28 }}
+        >
+          キリ番踏み逃げ厳禁！
+        </p>
+      )}
+    </>
   );
 }
