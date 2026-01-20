@@ -13,6 +13,17 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: "あれ？何を買いにきたんだっけ？",
+    description:
+      "「何か買い忘れている気がする……？」忘れっぽい主人公、残されたメモをヒントに、忘れてしまったもう一つを当ててあげよう！",
+    platform: "unityroom",
+    tags: ["Unity", "C#", "Team-Up!!"],
+    url: "https://unityroom.com/games/arenani",
+    publishedDate: "2026-01-20",
+    imageUrl: "/images/projects/arenani.png",
+    featured: true,
+  },
+  {
     title: "がんばれ！まおうちゃん！",
     description: "まおうちゃんが分身を大量生産し、壁をぶち壊すクリッカーゲーム",
     platform: "unityroom",
