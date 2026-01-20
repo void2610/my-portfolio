@@ -17,17 +17,10 @@ export const ogpImages: OgpImageData[] = [
     gameUrl: "https://unityroom.com/games/maouchan",
   },
   {
-    slug: "arenani_1",
+    slug: "arenani",
     title: "あれ？何を買いにきたんだっけ？",
     description: "あれ？何を買いにきたんだっけ？ - unityroomで無料公開中のゲーム",
-    imagePath: "/images/arenani_1.png",
-    gameUrl: "https://unityroom.com/games/arenani",
-  },
-  {
-    slug: "arenani_2",
-    title: "あれ？何を買いにきたんだっけ？",
-    description: "あれ？何を買いにきたんだっけ？ - unityroomで無料公開中のゲーム",
-    imagePath: "/images/arenani_2.png",
+    imagePath: "/images/arenani.png",
     gameUrl: "https://unityroom.com/games/arenani",
   },
 ];
