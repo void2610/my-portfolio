@@ -1,11 +1,11 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Link from "next/link";
 import { Star } from "lucide-react";
-import GradientText from "@/components/GradientText";
+import PageHeader from "@/components/PageHeader";
 import SurfaceCard from "@/components/SurfaceCard";
-import { DURATION, DELAY } from "@/config/animations";
+import AnimatedContainer from "@/components/animations/AnimatedContainer";
+import { DELAY } from "@/config/animations";
 
 // ツール一覧データ
 const tools = [
@@ -21,29 +21,14 @@ const tools = [
 export default function ToolsPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-16 min-h-[calc(100vh-150px)]">
-      {/* ヘッダー */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: DURATION.DEFAULT }}
-        className="mb-12 text-center"
-      >
-        <GradientText as="h1" size="2xl">
-          Tools
-        </GradientText>
-        <p className="text-secondary mt-4">
-          便利なツール集
-        </p>
-      </motion.div>
+      <PageHeader title="Tools" subtitle="便利なツール集" />
 
       {/* ツール一覧 */}
       <div className="grid gap-6">
         {tools.map((tool, index) => (
-          <motion.div
+          <AnimatedContainer
             key={tool.id}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: DURATION.DEFAULT, delay: DELAY.SMALL + index * 0.1 }}
+            delay={DELAY.SMALL + index * 0.1}
           >
             <Link href={tool.href}>
               <SurfaceCard shadow="hover" className="cursor-pointer">
@@ -62,7 +47,7 @@ export default function ToolsPage() {
                 </div>
               </SurfaceCard>
             </Link>
-          </motion.div>
+          </AnimatedContainer>
         ))}
       </div>
     </div>

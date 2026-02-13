@@ -6,7 +6,8 @@ import { useSearchParams } from "next/navigation";
 import ProjectCard from "@/components/ProjectCard";
 import SortSelector from "@/components/SortSelector";
 import TagFilter from "@/components/TagFilter";
-import GradientText from "@/components/GradientText";
+import PageHeader from "@/components/PageHeader";
+import AnimatedContainer from "@/components/animations/AnimatedContainer";
 import { DURATION, DELAY } from "@/config/animations";
 import { projects } from "@/data/projects";
 
@@ -69,27 +70,14 @@ function ProjectsContent() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-12">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: DURATION.DEFAULT }}
-        className="text-center mb-12"
-      >
-        <GradientText as="h1" size="2xl" className="mb-4">
-          Projects
-        </GradientText>
-        <p className="text-xl text-secondary max-w-2xl mx-auto">
-          ゲーム開発とソフトウェア開発の作品をご紹介します。
-        </p>
-      </motion.div>
+      <PageHeader
+        title="Projects"
+        subtitle="ゲーム開発とソフトウェア開発の作品をご紹介します。"
+      />
 
       {/* Filter and Sort Options */}
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: DURATION.MEDIUM, delay: DELAY.TINY }}
-        className="flex justify-end items-center gap-3 mb-8"
-      >
+      <AnimatedContainer delay={DELAY.TINY} duration={DURATION.MEDIUM} className="flex justify-end items-center gap-3 mb-8">
+
         {/* Tag Filter */}
         <TagFilter 
           tags={allTags}
@@ -100,7 +88,7 @@ function ProjectsContent() {
         
         {/* Sort Options */}
         <SortSelector value={sortOption} onChange={setSortOption} />
-      </motion.div>
+      </AnimatedContainer>
 
       {/* Project Grid */}
       {filteredAndSortedProjects.length > 0 ? (

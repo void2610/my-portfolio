@@ -3,9 +3,10 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Copy, Check, Search } from "lucide-react";
-import GradientText from "@/components/GradientText";
+import PageHeader from "@/components/PageHeader";
 import SurfaceCard from "@/components/SurfaceCard";
-import { DURATION, DELAY } from "@/config/animations";
+import AnimatedContainer from "@/components/animations/AnimatedContainer";
+import { DELAY } from "@/config/animations";
 
 // 評価データの型定義
 interface RatingData {
@@ -97,28 +98,14 @@ export default function UnityroomRatingPage() {
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-16 min-h-[calc(100vh-150px)]">
-      {/* ヘッダー */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: DURATION.DEFAULT }}
-        className="mb-8 text-center"
-      >
-        <GradientText as="h1" size="2xl">
-          Unityroom評価取得
-        </GradientText>
-        <p className="text-secondary mt-4">
-          unityroomのゲームURLを入力すると、評価データを取得してコピーできます
-        </p>
-      </motion.div>
+      <PageHeader
+        title="Unityroom評価取得"
+        subtitle="unityroomのゲームURLを入力すると、評価データを取得してコピーできます"
+        className="mb-8"
+      />
 
       {/* URL入力フォーム */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: DURATION.DEFAULT, delay: DELAY.SMALL }}
-        className="mb-8"
-      >
+      <AnimatedContainer delay={DELAY.SMALL} className="mb-8">
         <SurfaceCard>
           <div className="flex gap-4">
             <input
@@ -146,7 +133,7 @@ export default function UnityroomRatingPage() {
             </button>
           </div>
         </SurfaceCard>
-      </motion.div>
+      </AnimatedContainer>
 
       {/* エラー表示 */}
       {error && (
@@ -163,11 +150,7 @@ export default function UnityroomRatingPage() {
 
       {/* 評価データ表示 */}
       {ratingData && (
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: DURATION.DEFAULT }}
-        >
+        <AnimatedContainer>
           <SurfaceCard padding="none">
             <div className="flex justify-between items-center px-6 pt-6">
               <h2 className="text-xl font-semibold text-primary">評価データ</h2>
@@ -187,7 +170,7 @@ export default function UnityroomRatingPage() {
               </pre>
             </div>
           </SurfaceCard>
-        </motion.div>
+        </AnimatedContainer>
       )}
     </div>
   );
