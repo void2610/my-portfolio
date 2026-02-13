@@ -46,7 +46,7 @@ export default function ToolsPage() {
             transition={{ duration: DURATION.DEFAULT, delay: DELAY.SMALL + index * 0.1 }}
           >
             <Link href={tool.href}>
-              <Card className="bg-surface-elevated hover:shadow-lg transition-shadow cursor-pointer">
+              <Card className="bg-surface-elevated rounded-2xl shadow-lg hover:shadow-xl transition-shadow cursor-pointer">
                 <CardBody className="p-6">
                   <div className="flex items-start gap-4">
                     <div className="p-3 bg-surface rounded-lg">
