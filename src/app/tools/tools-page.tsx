@@ -2,9 +2,9 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Card, CardBody } from "@heroui/react";
 import { Star } from "lucide-react";
 import GradientText from "@/components/GradientText";
+import SurfaceCard from "@/components/SurfaceCard";
 import { DURATION, DELAY } from "@/config/animations";
 
 // ツール一覧データ
@@ -46,23 +46,21 @@ export default function ToolsPage() {
             transition={{ duration: DURATION.DEFAULT, delay: DELAY.SMALL + index * 0.1 }}
           >
             <Link href={tool.href}>
-              <Card className="bg-surface-elevated rounded-2xl shadow-lg hover:shadow-xl transition-shadow cursor-pointer">
-                <CardBody className="p-6">
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 bg-surface rounded-lg">
-                      <tool.icon className="w-6 h-6 text-primary" />
-                    </div>
-                    <div>
-                      <h2 className="text-xl font-semibold text-primary mb-2">
-                        {tool.name}
-                      </h2>
-                      <p className="text-secondary">
-                        {tool.description}
-                      </p>
-                    </div>
+              <SurfaceCard shadow="hover" className="cursor-pointer">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-surface rounded-lg">
+                    <tool.icon className="w-6 h-6 text-primary" />
                   </div>
-                </CardBody>
-              </Card>
+                  <div>
+                    <h2 className="text-xl font-semibold text-primary mb-2">
+                      {tool.name}
+                    </h2>
+                    <p className="text-secondary">
+                      {tool.description}
+                    </p>
+                  </div>
+                </div>
+              </SurfaceCard>
             </Link>
           </motion.div>
         ))}
