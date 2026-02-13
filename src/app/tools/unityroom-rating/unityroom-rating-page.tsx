@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Copy, Check, Search } from "lucide-react";
-import { Card, CardBody, CardHeader } from "@heroui/react";
 import GradientText from "@/components/GradientText";
+import SurfaceCard from "@/components/SurfaceCard";
 import { DURATION, DELAY } from "@/config/animations";
 
 // 評価データの型定義
@@ -119,35 +119,33 @@ export default function UnityroomRatingPage() {
         transition={{ duration: DURATION.DEFAULT, delay: DELAY.SMALL }}
         className="mb-8"
       >
-        <Card className="bg-surface-elevated">
-          <CardBody className="p-6">
-            <div className="flex gap-4">
-              <input
-                type="url"
-                name="unityroom-url"
-                autoComplete="on"
-                placeholder="https://unityroom.com/games/ゲームID"
-                value={url}
-                onChange={(e) => setUrl(e.target.value)}
-                onKeyDown={handleKeyDown}
-                disabled={loading}
-                className="flex-1 px-4 py-2 bg-surface text-primary border border-border-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 disabled:opacity-50"
-              />
-              <button
-                onClick={fetchRating}
-                disabled={loading}
-                className="min-w-[100px] px-4 py-2 bg-surface-elevated text-primary rounded-lg flex items-center justify-center gap-2 shadow-md hover:shadow-lg disabled:opacity-50 border border-border-primary"
-              >
-                {loading ? (
-                  <span className="w-4 h-4 border-2 border-gray-300 dark:border-gray-600 border-t-gray-800 dark:border-t-white rounded-full animate-spin" />
-                ) : (
-                  <Search className="w-4 h-4" />
-                )}
-                <span>取得</span>
-              </button>
-            </div>
-          </CardBody>
-        </Card>
+        <SurfaceCard>
+          <div className="flex gap-4">
+            <input
+              type="url"
+              name="unityroom-url"
+              autoComplete="on"
+              placeholder="https://unityroom.com/games/ゲームID"
+              value={url}
+              onChange={(e) => setUrl(e.target.value)}
+              onKeyDown={handleKeyDown}
+              disabled={loading}
+              className="flex-1 px-4 py-2 bg-surface text-primary border border-border-primary rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 disabled:opacity-50"
+            />
+            <button
+              onClick={fetchRating}
+              disabled={loading}
+              className="min-w-[100px] px-4 py-2 bg-surface-elevated text-primary rounded-xl flex items-center justify-center gap-2 shadow-md hover:shadow-lg disabled:opacity-50 border border-border-primary"
+            >
+              {loading ? (
+                <span className="w-4 h-4 border-2 border-gray-300 dark:border-gray-600 border-t-gray-800 dark:border-t-white rounded-full animate-spin" />
+              ) : (
+                <Search className="w-4 h-4" />
+              )}
+              <span>取得</span>
+            </button>
+          </div>
+        </SurfaceCard>
       </motion.div>
 
       {/* エラー表示 */}
@@ -157,11 +155,9 @@ export default function UnityroomRatingPage() {
           animate={{ opacity: 1, scale: 1 }}
           className="mb-8"
         >
-          <Card className="bg-danger-50 dark:bg-danger-900/20">
-            <CardBody className="p-4">
-              <p className="text-danger text-center">{error}</p>
-            </CardBody>
-          </Card>
+          <SurfaceCard variant="danger" shadow="none" padding="sm">
+            <p className="text-danger text-center">{error}</p>
+          </SurfaceCard>
         </motion.div>
       )}
 
@@ -172,25 +168,25 @@ export default function UnityroomRatingPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: DURATION.DEFAULT }}
         >
-          <Card className="bg-surface-elevated">
-            <CardHeader className="flex justify-between items-center px-6 pt-6">
+          <SurfaceCard padding="none">
+            <div className="flex justify-between items-center px-6 pt-6">
               <h2 className="text-xl font-semibold text-primary">評価データ</h2>
               <button
                 onClick={copyToClipboard}
-                className={`px-4 py-2 rounded-lg flex items-center gap-2 shadow-md hover:shadow-lg border border-border-primary transition-shadow ${
+                className={`px-4 py-2 rounded-xl flex items-center gap-2 shadow-md hover:shadow-lg border border-border-primary transition-shadow ${
                   copied ? "bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400" : "bg-surface-elevated text-primary"
                 }`}
               >
                 {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                 <span>{copied ? "コピーしました" : "コピー"}</span>
               </button>
-            </CardHeader>
-            <CardBody className="p-6 pt-2">
-              <pre className="whitespace-pre-wrap font-mono text-sm text-secondary bg-surface p-4 rounded-lg border-border-primary border">
+            </div>
+            <div className="p-6 pt-2">
+              <pre className="whitespace-pre-wrap font-mono text-sm text-secondary bg-surface p-4 rounded-xl border-border-primary border">
                 {formatRatingText(ratingData)}
               </pre>
-            </CardBody>
-          </Card>
+            </div>
+          </SurfaceCard>
         </motion.div>
       )}
     </div>
