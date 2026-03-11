@@ -5,6 +5,7 @@ import GitHubIcon from "@/components/icons/GitHubIcon";
 import { XIcon } from "@/components/icons/XIcon";
 import { socialLinks } from "@/config/navigation";
 import { hoverScale } from "@/config/animations";
+import { useHaptics } from "@/hooks/useHaptics";
 
 interface SocialLinksProps {
   size?: 'small' | 'default' | 'large';
@@ -19,6 +20,7 @@ export default function SocialLinks({
   variant = 'header',
   className = ""
 }: SocialLinksProps) {
+  const { trigger } = useHaptics();
   const sizeClasses = {
     small: 'w-4 h-4',
     default: 'w-5 h-5',
@@ -61,6 +63,7 @@ export default function SocialLinks({
             ${showShadow ? 'shadow-md hover:shadow-lg' : ''}
           `}
           aria-label={link.ariaLabel}
+          onClick={() => trigger("light")}
           {...hoverScale}
         >
           {getIcon(link.iconType)}
