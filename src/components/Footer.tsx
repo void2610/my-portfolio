@@ -1,3 +1,5 @@
+"use client";
+
 import VisitorCounter from "./VisitorCounter";
 
 export default function Footer() {
