@@ -7,6 +7,7 @@ import AnimatedContainer from "@/components/animations/AnimatedContainer";
 import SocialLinks from "./SocialLinks";
 import GradientText from "./GradientText";
 import { scaleIn, hoverScale, DURATION, DELAY, EASING } from "@/config/animations";
+import { useHaptics } from "@/hooks/useHaptics";
 
 interface ProfileHeroProps {
   showDescription?: boolean;
@@ -14,6 +15,7 @@ interface ProfileHeroProps {
 }
 
 export default function ProfileHero({ showDescription = true, isClickable = false }: ProfileHeroProps) {
+  const { trigger } = useHaptics();
   const avatarContent = (
     <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden bg-gradient-to-br from-blue-500 to-purple-600 p-0.5">
       <div className="w-full h-full rounded-full bg-surface overflow-hidden relative">
@@ -94,7 +96,7 @@ export default function ProfileHero({ showDescription = true, isClickable = fals
         {/* アバター本体 */}
         <div className="relative">
           {isClickable ? (
-            <Link href="/about" className="block cursor-pointer group">
+            <Link href="/about" className="block cursor-pointer group" onClick={() => trigger("medium")}>
               <motion.div
                 {...hoverScale}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -103,7 +105,14 @@ export default function ProfileHero({ showDescription = true, isClickable = fals
               </motion.div>
             </Link>
           ) : (
-            avatarContent
+            <motion.div
+              {...hoverScale}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              onClick={() => trigger("medium")}
+              className="cursor-pointer"
+            >
+              {avatarContent}
+            </motion.div>
           )}
         </div>
       </motion.div>
