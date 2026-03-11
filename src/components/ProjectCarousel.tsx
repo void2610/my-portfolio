@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation'
 import { projects } from '@/data/projects'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { useImageError } from '@/hooks/useImageError'
+import { useHaptics } from '@/hooks/useHaptics'
 
 export default function ProjectCarousel() {
   const router = useRouter()
@@ -14,6 +15,7 @@ export default function ProjectCarousel() {
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
   const [direction, setDirection] = useState(0)
   const { handleImageError, hasError } = useImageError()
+  const { trigger } = useHaptics()
 
   // Filter featured projects or show all if none are featured
   const featuredProjects = projects.filter(p => p.featured).length > 0 
@@ -35,17 +37,20 @@ export default function ProjectCarousel() {
     setIsAutoPlaying(false)
     setDirection(-1)
     setCurrentIndex((prev) => (prev - 1 + featuredProjects.length) % featuredProjects.length)
+    trigger("selection")
   }
 
   const handleNext = () => {
     setIsAutoPlaying(false)
     setDirection(1)
     setCurrentIndex((prev) => (prev + 1) % featuredProjects.length)
+    trigger("selection")
   }
 
   const handleImageClick = (projectTitle: string) => {
     // Navigate to projects page with query parameter
     router.push(`/projects?scrollTo=${encodeURIComponent(projectTitle)}`)
+    trigger("medium")
   }
 
   const slideVariants = {
@@ -156,6 +161,7 @@ export default function ProjectCarousel() {
               onClick={() => {
                 setIsAutoPlaying(false)
                 setCurrentIndex(index)
+                trigger("selection")
               }}
               className={`w-2 h-2 rounded-full transition-all ${
                 index === currentIndex 
