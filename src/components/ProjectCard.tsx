@@ -10,6 +10,7 @@ import { platformConfig } from "@/config/platforms";
 import { formatDate } from "@/utils/date";
 import { useImageError } from "@/hooks/useImageError";
 import { DURATION, SPRING, SCALE, STAGGER, EASING } from "@/config/animations";
+import { useHaptics } from "@/hooks/useHaptics";
 
 interface ProjectCardProps {
   project: Project;
@@ -21,6 +22,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
   const Icon = config.icon;
   const [isFlipped, setIsFlipped] = useState(false);
   const { handleImageError, hasError } = useImageError();
+  const { trigger } = useHaptics();
   
   // Sanitize title for HTML ID by replacing spaces and special characters
   const sanitizedId = `project-${project.title.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}`;
@@ -32,7 +34,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: DURATION.MEDIUM, delay: index * STAGGER.MEDIUM }}
       className="relative h-[320px] perspective-1000"
-      onClick={() => setIsFlipped(!isFlipped)}
+      onClick={() => { setIsFlipped(!isFlipped); trigger("medium"); }}
       whileHover={{ 
         rotateX: 8,
         rotateY: 12,
@@ -68,8 +70,8 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               target="_blank"
               rel="noopener noreferrer"
               className={`absolute top-4 right-4 w-10 h-10 rounded-xl bg-gradient-to-br ${config.color} flex items-center justify-center shadow-lg backdrop-blur-sm cursor-pointer`}
-              onClick={(e) => e.stopPropagation()}
-              whileHover={{ 
+              onClick={(e) => { e.stopPropagation(); trigger("light"); }}
+              whileHover={{
                 scale: SCALE.MEDIUM,
                 rotate: 5,
                 transition: { duration: DURATION.FAST }

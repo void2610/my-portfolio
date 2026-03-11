@@ -4,10 +4,12 @@ import { Button } from "@heroui/react";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import { useHaptics } from "@/hooks/useHaptics";
 
 export default function ThemeToggle() {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
+  const { trigger } = useHaptics();
 
   useEffect(() => {
     setMounted(true);
@@ -30,7 +32,7 @@ export default function ThemeToggle() {
   const toggleTheme = () => {
     const newTheme = theme === "dark" ? "light" : "dark";
     setTheme(newTheme);
-    console.log("Theme changed to:", newTheme); // デバッグ用
+    trigger("light");
   };
 
   return (

@@ -7,12 +7,15 @@ import ThemeToggle from "./ThemeToggle";
 import SocialLinks from "./SocialLinks";
 import { DURATION, SCALE, STAGGER, SPRING } from "@/config/animations";
 import { mainNavigation } from "@/config/navigation";
+import { useHaptics } from "@/hooks/useHaptics";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { trigger } = useHaptics();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+    trigger("light");
   };
 
   return (
@@ -105,7 +108,7 @@ export default function Header() {
                   <Link
                     href={item.href}
                     className="block text-primary hover:text-secondary hover:bg-surface-elevated transition-all duration-200 font-medium py-3 px-4 rounded-lg"
-                    onClick={() => setIsMenuOpen(false)}
+                    onClick={() => { setIsMenuOpen(false); trigger("selection"); }}
                   >
                     <motion.span
                       whileHover={{ x: 5 }}
