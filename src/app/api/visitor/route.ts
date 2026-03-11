@@ -26,7 +26,7 @@ export async function GET() {
       .from("visitor_counter")
       .select("count")
       .eq("id", 1)
-      .single();
+      .single() as { data: { count: number } | null; error: unknown };
 
     if (error) {
       console.error("Error fetching count:", error);
