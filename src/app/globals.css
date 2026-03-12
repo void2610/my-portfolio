@@ -88,6 +88,16 @@ body {
     box-shadow 0.3s ease;
 }
 
+/* Small text defaults to subtext color */
+@layer base {
+  .text-sm {
+    color: var(--text-secondary);
+  }
+  .text-xs {
+    color: var(--text-tertiary);
+  }
+}
+
 /* Utility Classes */
 .text-primary {
   color: var(--text-primary);
