@@ -63,7 +63,7 @@ export default function VisitorCounter() {
       </span>
       {showTooltip && (
         <p
-          className="fixed px-3 py-1.5 text-xs text-secondary bg-surface-elevated rounded-lg shadow-lg whitespace-nowrap pointer-events-none z-50"
+          className="fixed px-3 py-1.5 text-xs text-muted bg-surface-elevated rounded-lg shadow-lg whitespace-nowrap pointer-events-none z-50"
           style={{ left: mousePos.x + 12, top: mousePos.y - 28 }}
         >
           キリ番踏み逃げ厳禁！

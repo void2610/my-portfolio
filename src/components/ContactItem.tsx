@@ -57,7 +57,7 @@ export default function ContactItem({
         {icon}
       </div>
       <div className="flex-1">
-        <p className="text-sm text-tertiary mb-1">{platform}</p>
+        <p className="text-sm text-muted mb-1">{platform}</p>
         <p className="text-lg font-medium text-primary">{handle}</p>
       </div>
     </motion.a>

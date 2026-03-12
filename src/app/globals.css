@@ -44,9 +44,9 @@
   
   /* Text Colors - High contrast whites and grays */
   --text-primary: #ffffff;
-  --text-secondary: #b3b3b3;
-  --text-tertiary: #808080;
-  --text-muted: #555555;
+  --text-secondary: #e5e5e5;
+  --text-tertiary: #b3b3b3;
+  --text-muted: #737373;
   
   /* Border Colors - Subtle but visible */
   --border-primary: #262626;
