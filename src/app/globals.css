@@ -88,13 +88,13 @@ body {
     box-shadow 0.3s ease;
 }
 
-/* Small text defaults to subtext color */
+/* Small text defaults to muted subtext color */
 @layer base {
   .text-sm {
-    color: var(--text-secondary);
+    color: var(--text-muted);
   }
   .text-xs {
-    color: var(--text-tertiary);
+    color: var(--text-muted);
   }
 }
 

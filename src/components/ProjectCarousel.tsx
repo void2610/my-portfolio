@@ -130,7 +130,7 @@ export default function ProjectCarousel() {
               <h3 className="text-2xl font-bold mb-2">
                 {featuredProjects[currentIndex].title}
               </h3>
-              <p className="text-sm opacity-90 line-clamp-2">
+              <p className="text-sm text-white opacity-90 line-clamp-2">
                 {featuredProjects[currentIndex].description}
               </p>
             </div>
