@@ -21,7 +21,7 @@ export default function ExperienceItem({ title, period, description, index }: Ex
     >
       <h3 className="font-semibold text-primary">{title}</h3>
       <p className="text-sm text-muted mb-2">{period}</p>
-      <p className="text-secondary">{description}</p>
+      <p className="text-tertiary">{description}</p>
     </motion.div>
   );
 }

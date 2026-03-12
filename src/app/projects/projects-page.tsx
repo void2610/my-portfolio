@@ -78,7 +78,7 @@ function ProjectsContent() {
         <GradientText as="h1" size="2xl" className="mb-4">
           Projects
         </GradientText>
-        <p className="text-xl text-secondary max-w-2xl mx-auto">
+        <p className="text-xl text-tertiary max-w-2xl mx-auto">
           ゲーム開発とソフトウェア開発の作品をご紹介します。
         </p>
       </motion.div>
@@ -118,7 +118,7 @@ function ProjectsContent() {
           animate={{ opacity: 1 }}
           className="text-center py-20"
         >
-          <p className="text-xl text-secondary">
+          <p className="text-xl text-tertiary">
             選択されたタグに一致するプロジェクトがありません
           </p>
           <button

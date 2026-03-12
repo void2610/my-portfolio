@@ -120,11 +120,11 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-white">{project.title}</h3>
-                  <p className="text-sm text-white/80 font-medium">{config.name}</p>
+                  <p className="text-sm text-white/60 font-medium">{config.name}</p>
                 </div>
               </div>
               <div className="text-right">
-                <span className="text-white/70 text-xs font-medium">
+                <span className="text-white/50 text-xs font-medium">
                   {formatDate(project.publishedDate)}
                 </span>
               </div>
@@ -132,7 +132,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
 
             {/* Description */}
             <div className="mb-4">
-              <p className="text-sm text-white/90 leading-relaxed line-clamp-3">
+              <p className="text-sm text-white/70 leading-relaxed line-clamp-3">
                 {project.description}
               </p>
             </div>

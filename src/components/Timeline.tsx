@@ -65,7 +65,7 @@ export default function Timeline() {
                   
                   {/* 説明 */}
                   {item.description && (
-                    <p className="text-secondary leading-relaxed">
+                    <p className="text-tertiary leading-relaxed">
                       {item.description}
                     </p>
                   )}

@@ -142,11 +142,11 @@ export default function ProfileHero({ showDescription = true, isClickable = fals
             Shuya IZUMI
           </p>
         </div>
-        <p className="text-xl text-secondary mb-6">
+        <p className="text-xl text-tertiary mb-6">
           ゲームクリエイター / ソフトウェアエンジニア
         </p>
         {showDescription && (
-          <p className="text-lg text-secondary leading-relaxed mb-6">
+          <p className="text-lg text-muted leading-relaxed mb-6">
             創造性と技術を融合させて、人々に楽しさと驚きを提供することを目指しています。
             ゲーム開発からWebアプリケーションまで、幅広い分野で活動しています。
           </p>

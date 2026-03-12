@@ -26,7 +26,7 @@ export default function Contact() {
         transition={{ duration: DURATION.DEFAULT, delay: DELAY.SMALL }}
         className="text-center mb-16"
       >
-        <p className="text-xl text-secondary max-w-2xl mx-auto">
+        <p className="text-xl text-tertiary max-w-2xl mx-auto">
           お仕事のご依頼やご質問がございましたら、<br />
           お気軽にお問い合わせください。
         </p>
