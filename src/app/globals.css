@@ -36,11 +36,11 @@
 }
 
 [data-theme="dark"], .dark {
-  /* Background Colors - Charcoal Black */
-  --background: #232023;
-  --background-secondary: #2a272a;
-  --surface: #2a272a;
-  --surface-elevated: #332f33;
+  /* Background Colors - Much darker, almost black */
+  --background: #0a0a0a;
+  --background-secondary: #111111;
+  --surface: #111111;
+  --surface-elevated: #1a1a1a;
   
   /* Text Colors - High contrast whites and grays */
   --text-primary: #ffffff;
