@@ -25,8 +25,9 @@ export default function VisitorCounter() {
   useEffect(() => {
     const recordAndFetchVisitor = async () => {
       try {
-        // クッキーで訪問済みかチェック
-        const hasVisited = getCookie("visited_daily");
+        // 開発環境ではクッキーチェックをスキップ（毎回インクリメント）
+        const isDev = process.env.NODE_ENV === 'development';
+        const hasVisited = isDev ? false : getCookie("visited_daily");
 
         // 未訪問の場合のみカウントを増やす
         if (!hasVisited) {
@@ -34,8 +35,8 @@ export default function VisitorCounter() {
           setCookie("visited_daily", "1");
         }
 
-        // カウントを取得
-        const res = await fetch("/api/visitor");
+        // キャッシュ回避のためタイムスタンプを付与してカウントを取得
+        const res = await fetch(`/api/visitor?t=${Date.now()}`);
         const data = await res.json();
         if (data.count !== undefined) {
           setVisitorCount(data.count);
