@@ -55,7 +55,7 @@ export default function ToolsPage() {
                     <h2 className="text-xl font-semibold text-primary mb-2">
                       {tool.name}
                     </h2>
-                    <p className="text-secondary">
+                    <p className="text-[var(--text-muted)]">
                       {tool.description}
                     </p>
                   </div>

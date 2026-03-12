@@ -120,11 +120,11 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-white">{project.title}</h3>
-                  <p className="text-sm text-white/80 font-medium">{config.name}</p>
+                  <p className="text-sm text-[var(--text-muted)] font-medium">{config.name}</p>
                 </div>
               </div>
               <div className="text-right">
-                <span className="text-white/70 text-xs font-medium">
+                <span className="text-[var(--text-muted)] text-xs font-medium">
                   {formatDate(project.publishedDate)}
                 </span>
               </div>
