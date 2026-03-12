@@ -132,7 +132,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
 
             {/* Description */}
             <div className="mb-4">
-              <p className="text-sm text-white/90 leading-relaxed line-clamp-3">
+              <p className="text-sm text-[var(--text-muted)] leading-relaxed line-clamp-3">
                 {project.description}
               </p>
             </div>
@@ -142,7 +142,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               {project.tags.map((tag) => (
                 <span
                   key={tag}
-                  className={`px-3 py-1 text-sm rounded-full font-medium bg-gradient-to-r ${config.color} text-white shadow-sm`}
+                  className={`px-3 py-1 text-sm rounded-full font-medium bg-gradient-to-r ${config.color} text-[var(--text-muted)] shadow-sm`}
                 >
                   {tag}
                 </span>
