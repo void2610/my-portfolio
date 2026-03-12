@@ -44,9 +44,9 @@
   
   /* Text Colors - High contrast whites and grays */
   --text-primary: #ffffff;
-  --text-secondary: #e5e5e5;
-  --text-tertiary: #b3b3b3;
-  --text-muted: #737373;
+  --text-secondary: #b3b3b3;
+  --text-tertiary: #808080;
+  --text-muted: #555555;
   
   /* Border Colors - Subtle but visible */
   --border-primary: #262626;
@@ -86,16 +86,6 @@ body {
     color 0.3s ease,
     border-color 0.3s ease,
     box-shadow 0.3s ease;
-}
-
-/* Small text defaults to muted subtext color */
-@layer base {
-  .text-sm {
-    color: var(--text-muted);
-  }
-  .text-xs {
-    color: var(--text-muted);
-  }
 }
 
 /* Utility Classes */
