@@ -120,11 +120,11 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-white">{project.title}</h3>
-                  <p className="text-sm text-white/80 font-medium">{config.name}</p>
+                  <p className="text-sm text-[var(--text-muted)] font-medium">{config.name}</p>
                 </div>
               </div>
               <div className="text-right">
-                <span className="text-white/70 text-xs font-medium">
+                <span className="text-[var(--text-muted)] text-xs font-medium">
                   {formatDate(project.publishedDate)}
                 </span>
               </div>
@@ -132,7 +132,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
 
             {/* Description */}
             <div className="mb-4">
-              <p className="text-sm text-[var(--text-muted)] leading-relaxed line-clamp-3">
+              <p className="text-sm text-white/90 leading-relaxed line-clamp-3">
                 {project.description}
               </p>
             </div>
@@ -142,7 +142,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               {project.tags.map((tag) => (
                 <span
                   key={tag}
-                  className={`px-3 py-1 text-sm rounded-full font-medium bg-gradient-to-r ${config.color} text-[var(--text-muted)] shadow-sm`}
+                  className={`px-3 py-1 text-sm rounded-full font-medium bg-gradient-to-r ${config.color} text-white shadow-sm`}
                 >
                   {tag}
                 </span>
