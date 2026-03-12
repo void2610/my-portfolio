@@ -8,7 +8,7 @@ export function HeroUIProvider({ children }: { children: React.ReactNode }) {
     <Provider>
       <NextThemesProvider 
         attribute="class" 
-        defaultTheme="light" 
+        defaultTheme="dark"
         themes={["light", "dark"]}
         enableSystem={false}
         disableTransitionOnChange={false}
