@@ -13,7 +13,7 @@ export const ogpImages: OgpImageData[] = [
     slug: "Grandider",
     title: "凋落のグランディディエ",
     description: "凋落のグランディディエ",
-    imagePath: "/images/grandidier.jpg",
+    imagePath: "/images/grandidier.png",
     gameUrl: "https://unityroom.com/games/grandidier",
   },
   {
