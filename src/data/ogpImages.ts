@@ -10,6 +10,13 @@ export interface OgpImageData {
 
 export const ogpImages: OgpImageData[] = [
   {
+    slug: "Grandider",
+    title: "凋落のグランディディエ",
+    description: "凋落のグランディディエ",
+    imagePath: "/images/grandidier.jpg",
+    gameUrl: "https://unityroom.com/games/grandidier",
+  },
+  {
     slug: "maouchan",
     title: "がんばれ！まおうちゃん！",
     description: "がんばれ！まおうちゃん！ - unityroomで無料公開中のゲーム",
