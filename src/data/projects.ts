@@ -13,6 +13,17 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: "凋落のグランディディエ",
+    description:
+      "吐くことで宝石を生み出す姉と、涙で宝石を作る弟。二人は宝石店を営みながら、借金と生活のために、日々それを売り続けている。絶望と凋落のマルチエンドADV。",
+    platform: "unityroom",
+    tags: ["Unity", "C#", "unity1week", "Team-Up!!"],
+    url: "https://unityroom.com/games/grandidier",
+    publishedDate: "2026-03-22",
+    imageUrl: "/images/grandidier.png",
+    featured: true,
+  },
+  {
     title: "あれ？何を買いにきたんだっけ？",
     description:
       "「何か買い忘れている気がする……？」忘れっぽい主人公、残されたメモをヒントに、忘れてしまったもう一つを当ててあげよう！",
