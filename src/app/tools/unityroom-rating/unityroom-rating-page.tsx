@@ -105,7 +105,7 @@ export default function UnityroomRatingPage() {
         className="mb-8 text-center"
       >
         <GradientText as="h1" size="2xl">
-          Unityroom評価取得
+          unityroom評価取得
         </GradientText>
         <p className="text-secondary mt-4">
           unityroomのゲームURLを入力すると、評価データを取得してコピーできます
@@ -173,9 +173,8 @@ export default function UnityroomRatingPage() {
               <h2 className="text-xl font-semibold text-primary">評価データ</h2>
               <button
                 onClick={copyToClipboard}
-                className={`px-4 py-2 rounded-xl flex items-center gap-2 shadow-md hover:shadow-lg border border-border-primary transition-shadow ${
-                  copied ? "bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400" : "bg-surface-elevated text-primary"
-                }`}
+                className={`px-4 py-2 rounded-xl flex items-center gap-2 shadow-md hover:shadow-lg border border-border-primary transition-shadow ${copied ? "bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400" : "bg-surface-elevated text-primary"
+                  }`}
               >
                 {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                 <span>{copied ? "コピーしました" : "コピー"}</span>

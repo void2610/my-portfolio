@@ -11,7 +11,7 @@ import { DURATION, DELAY } from "@/config/animations";
 const tools = [
   {
     id: "unityroom-rating",
-    name: "Unityroom評価取得",
+    name: "unityroom評価取得",
     description: "unityroomのゲームURLを入力すると、評価データを取得してテキストでコピーできます",
     href: "/tools/unityroom-rating",
     icon: Star,
