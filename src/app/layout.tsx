@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Suspense } from "react";
 import { Geist, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
@@ -6,6 +6,11 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { HeroUIProvider } from "@/components/providers";
 import { Analytics } from "@vercel/analytics/next";
+import {
+  BRAND_ACCENT_HEX,
+  BROWSER_THEME_COLOR_DARK,
+  BROWSER_THEME_COLOR_LIGHT,
+} from "@/config/site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,6 +21,23 @@ const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   subsets: ["latin"],
 });
+
+/**
+ * theme-color の指定
+ *
+ * ブラウザは「media 条件が最初に一致した theme-color」を採用するのに対し、
+ * Discord は「ドキュメント内で最後に現れた theme-color」をリンクプレビューの
+ * アクセントカラーとして採用する。そのため media 付きの2つでブラウザのUI色を、
+ * 最後の media なしの1つで Discord のアクセントカラーを指定している。
+ * Discord が解釈できるのは #RRGGBB / #RRGGBBAA 形式のみ。
+ */
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: BROWSER_THEME_COLOR_LIGHT },
+    { media: "(prefers-color-scheme: dark)", color: BROWSER_THEME_COLOR_DARK },
+    { color: BRAND_ACCENT_HEX },
+  ],
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.void2610.dev'),

@@ -99,6 +99,15 @@ This is a Next.js 15 portfolio website for a game creator and software engineer 
 - **STAGGER**: Animation stagger intervals (FAST: 0.03s, DEFAULT: 0.05s, MEDIUM: 0.1s, etc.)
 - **EASING**: Consistent easing functions (EASE_IN_OUT, EASE_OUT, EASE_IN)
 
+**Discord Link Previews (Component Embeds)**:
+- Discord は OGP の代わりに `<script id="discord:component-embed" type="application/json">` を読み取り、Discord コンポーネントで組んだ独自レイアウトのプレビューを表示する
+- `src/utils/discordComponentEmbed.ts` - 使用可能なコンポーネント(Container / Section / Text Display / Thumbnail / Media Gallery / Separator / Action Row / Link Button)の型定義とビルダー、制限値、JSONシリアライズ
+- `src/data/discordEmbeds.ts` - 各ページのプレビュー内容の定義
+- `src/components/DiscordComponentEmbed.tsx` - script タグを出力するサーバーコンポーネント。Discord のクローラーは JS を実行しないため必ずサーバー側で出力する
+- 主な制限: コンポーネント総数40個、画像は公開された http(s) の直リンク、ページと全画像の取得を10秒以内に完了する必要がある
+- Component Embed が使えない環境向けに、通常の OGP タグも必ず併記しておく
+- `src/config/site.ts` の `BRAND_ACCENT_HEX` は `theme-color` として出力され、Discord では標準プレビューのアクセントバー色になる(`#RRGGBB` / `#RRGGBBAA` のみ有効)。ブラウザは最初に media が一致したもの、Discord は最後に現れたものを採用するため、layout.tsx では media 付き2つ + media なし1つの順で出力している
+
 **Utility Functions**:
 - `src/utils/date.ts` - Date formatting utilities (formatDate, formatDateShort, formatMonth, getYear)
 - `src/hooks/useImageError.ts` - Custom hook for image error handling with state management
