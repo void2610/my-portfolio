@@ -15,11 +15,11 @@ export const SITE_AUTHOR_ALT = "Shuya IZUMI";
 export const X_HANDLE = "@void2610";
 
 /** プロフィール画像 */
-export const AVATAR_IMAGE_PATH = "/images/void2610.png";
+export const AVATAR_IMAGE_PATH = "/images/void2610.webp";
 
 /** OGPのデフォルト画像。Discordは幅高さが無いと実測しにいくため必ず指定する */
 export const DEFAULT_OGP_IMAGE = {
-  path: "/images/ogp-image.png",
+  path: "/images/ogp-image.webp",
   width: 1200,
   height: 630,
   alt: SITE_AUTHOR,

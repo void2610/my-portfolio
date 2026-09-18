@@ -20,7 +20,7 @@ export const projects: Project[] = [
     tags: ["Unity", "C#", "unity1week", "Team-Up!!"],
     url: "https://unityroom.com/games/grandidier",
     publishedDate: "2026-03-22",
-    imageUrl: "/images/grandidier.png",
+    imageUrl: "/images/grandidier.webp",
     featured: true,
   },
   {
@@ -31,7 +31,7 @@ export const projects: Project[] = [
     tags: ["Unity", "C#", "Team-Up!!"],
     url: "https://unityroom.com/games/arenani",
     publishedDate: "2026-01-20",
-    imageUrl: "/images/projects/arenani.png",
+    imageUrl: "/images/projects/arenani.webp",
     featured: true,
   },
   {
@@ -41,7 +41,7 @@ export const projects: Project[] = [
     tags: ["Unity", "C#", "unity1week", "Team-Up!!"],
     url: "https://unityroom.com/games/maouchan",
     publishedDate: "2025-12-28",
-    imageUrl: "/images/projects/maouchan.png",
+    imageUrl: "/images/projects/maouchan.webp",
     featured: true,
   },
   {
@@ -51,7 +51,7 @@ export const projects: Project[] = [
     tags: ["Unity", "C#", "Team-Up!!"],
     url: "https://store.steampowered.com/app/4105720/",
     publishedDate: "2025-12-31",
-    imageUrl: "/images/projects/garden-gnome.png",
+    imageUrl: "/images/projects/garden-gnome.webp",
     featured: true,
   },
   {
@@ -62,7 +62,7 @@ export const projects: Project[] = [
     tags: ["Unity", "C#"],
     url: "https://unityroom.com/games/hontouni",
     publishedDate: "2025-12-11",
-    imageUrl: "/images/projects/hontouni.png",
+    imageUrl: "/images/projects/hontouni.webp",
   },
   {
     title: "VOID RED プロモーションページ",
@@ -72,7 +72,7 @@ export const projects: Project[] = [
     tags: ["TypeScript", "Next.js"],
     url: "https://github.com/void2610/void-red-promotion-page",
     publishedDate: "2025-08-29",
-    imageUrl: "/images/projects/void-red-landing-page.png",
+    imageUrl: "/images/projects/void-red-landing-page.webp",
   },
   {
     title: "VOID RED",
@@ -82,7 +82,7 @@ export const projects: Project[] = [
     tags: ["Unity", "C#", "ゲームクリエイター甲子園"],
     url: "https://void-red.void2610.dev/",
     publishedDate: "2025-08-29",
-    imageUrl: "/images/projects/void-red.jpg",
+    imageUrl: "/images/projects/void-red.webp",
     featured: true,
   },
   {
@@ -93,7 +93,7 @@ export const projects: Project[] = [
     tags: ["Unity", "C#", "unity1week", "Team-Up!!"],
     url: "https://unityroom.com/games/striena-the-holy-dragon",
     publishedDate: "2025-08-10",
-    imageUrl: "/images/projects/striena-the-holy-dragon.png",
+    imageUrl: "/images/projects/striena-the-holy-dragon.webp",
     featured: true,
   },
   {
@@ -104,7 +104,7 @@ export const projects: Project[] = [
     tags: ["Unity", "C#", "BitSummit"],
     url: "https://bitsummit-gamejam.itch.io/konkoro",
     publishedDate: "2025-07-17",
-    imageUrl: "/images/projects/konkoro.png",
+    imageUrl: "/images/projects/konkoro.webp",
     featured: true,
   },
   {
@@ -115,7 +115,7 @@ export const projects: Project[] = [
     tags: ["Unity", "C#", "unity1week", "Team-Up!!"],
     url: "https://unityroom.com/games/ivy-survivor",
     publishedDate: "2025-04-21",
-    imageUrl: "/images/projects/ivy-survivor.png",
+    imageUrl: "/images/projects/ivy-survivor.webp",
     featured: true,
   },
   {
@@ -126,7 +126,7 @@ export const projects: Project[] = [
     tags: ["Unity", "C#", "unity1week"],
     url: "https://unityroom.com/games/calm-fishing",
     publishedDate: "2024-12-29",
-    imageUrl: "/images/projects/calm-fishing.png",
+    imageUrl: "/images/projects/calm-fishing.webp",
     featured: true,
   },
   {
@@ -137,7 +137,7 @@ export const projects: Project[] = [
     tags: ["Unity", "C#", "unity1week"],
     url: "https://unityroom.com/games/okuribon",
     publishedDate: "2024-08-17",
-    imageUrl: "/images/projects/okuribon.png",
+    imageUrl: "/images/projects/okuribon.webp",
   },
   {
     title: "Touchstone",
@@ -147,7 +147,7 @@ export const projects: Project[] = [
     tags: ["Unity", "C#"],
     url: "https://unityroom.com/games/touchstone",
     publishedDate: "2024-06-23",
-    imageUrl: "/images/projects/touchstone.png",
+    imageUrl: "/images/projects/touchstone.webp",
   },
   {
     title: "Sumo Survivors!",
@@ -157,7 +157,7 @@ export const projects: Project[] = [
     tags: ["Unity", "C#"],
     url: "https://unityroom.com/games/sumo_survivors",
     publishedDate: "2024-02-11",
-    imageUrl: "/images/projects/sumo-survivors.png",
+    imageUrl: "/images/projects/sumo-survivors.webp",
   },
   {
     title: "SIGMA COALESCE",
@@ -167,7 +167,7 @@ export const projects: Project[] = [
     tags: ["Unity", "C#"],
     url: "https://store.steampowered.com/app/3646540/",
     publishedDate: "2025-07-01",
-    imageUrl: "/images/projects/sigma-coalesce.jpg",
+    imageUrl: "/images/projects/sigma-coalesce.webp",
   },
   {
     title: "Simple-YouTube-Player",
@@ -177,7 +177,7 @@ export const projects: Project[] = [
     tags: ["TypeScript", "Tauri", "YouTube API"],
     url: "https://github.com/void2610/Simple-YouTube-Player",
     publishedDate: "2023-06-17",
-    imageUrl: "/images/projects/simple-youtube-player.png",
+    imageUrl: "/images/projects/simple-youtube-player.webp",
     featured: true,
   },
   {
@@ -188,7 +188,7 @@ export const projects: Project[] = [
     tags: ["TypeScript", "Next.js"],
     url: "https://github.com/void2610/ACVI-Randomizer",
     publishedDate: "2023-08-25",
-    imageUrl: "/images/projects/acvi-randomizer.png",
+    imageUrl: "/images/projects/acvi-randomizer.webp",
   },
   {
     title: "PaOn",
@@ -198,7 +198,7 @@ export const projects: Project[] = [
     tags: ["Unity", "C#", "MagicOnion", "Procon"],
     url: "https://github.com/void2610/PaOn",
     publishedDate: "2022-10-15",
-    imageUrl: "/images/projects/paon.png",
+    imageUrl: "/images/projects/paon.webp",
   },
   {
     title: "PRMUL",
@@ -208,7 +208,7 @@ export const projects: Project[] = [
     tags: ["Java", "Android", "Google Maps API", "Fukui Soft Compe"],
     url: "https://github.com/void2610/PRMUL",
     publishedDate: "2020-10-14",
-    imageUrl: "/images/projects/prmul.png",
+    imageUrl: "/images/projects/prmul.webp",
   },
   {
     title: "ToumeiRO",
@@ -218,7 +218,7 @@ export const projects: Project[] = [
     tags: ["Unity", "C#"],
     url: "https://github.com/void2610/ToumeiRO",
     publishedDate: "2020-01-28",
-    imageUrl: "/images/projects/toumeiro.jpg",
+    imageUrl: "/images/projects/toumeiro.webp",
   },
   {
     title: "Geo Search FUKUI",
@@ -228,7 +228,7 @@ export const projects: Project[] = [
     tags: ["javascript", "html", "open data"],
     url: "https://github.com/void2610/Geo-search-FUKUI",
     publishedDate: "2023-01-29",
-    imageUrl: "/images/projects/geo-search-fukui.png",
+    imageUrl: "/images/projects/geo-search-fukui.webp",
   },
   {
     title: "論破王ふくゆき",
@@ -238,7 +238,7 @@ export const projects: Project[] = [
     tags: ["javascript", "Node.js", "LINE Messaging API", "OpenAI API"],
     url: "https://github.com/sibakaretasuisoTeam/Fukuyuki-Ronpa-Bot",
     publishedDate: "2023-08-29",
-    imageUrl: "/images/projects/fukuyuki-ronpa-bot.jpg",
+    imageUrl: "/images/projects/fukuyuki-ronpa-bot.webp",
   },
   {
     title: "2023年度福井高専祭HP",
@@ -248,7 +248,7 @@ export const projects: Project[] = [
     tags: ["TypeScript", "Next.js"],
     url: "https://github.com/nitfc-festival-system-team/2023hp",
     publishedDate: "2023-10-27",
-    imageUrl: "/images/projects/2023hp.png",
+    imageUrl: "/images/projects/2023hp.webp",
   },
   {
     title: "VR-CET",
@@ -258,6 +258,6 @@ export const projects: Project[] = [
     tags: ["Unity", "C#", "VR", "Research"],
     url: "https://github.com/void2610/VR-CET-Unity-2023",
     publishedDate: "2024-01-12",
-    imageUrl: "/images/projects/vr-cet.png",
+    imageUrl: "/images/projects/vr-cet.webp",
   },
 ];
