@@ -1,4 +1,12 @@
 import type { Metadata } from "next";
+import {
+  DEFAULT_OGP_IMAGE,
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_URL,
+  X_HANDLE,
+  absoluteUrl,
+} from "@/config/site";
 
 /**
  * Creates page metadata with the site template applied
@@ -21,8 +29,10 @@ export function createPageMetadata(
     keywords?: string[];
   }
 ): Metadata {
-  const fullTitle = `${title} | void2610.dev`;
-  
+  const fullTitle = `${title} | ${SITE_NAME}`;
+  const description = options?.description || SITE_DESCRIPTION;
+  const ogpImageUrl = absoluteUrl(DEFAULT_OGP_IMAGE.path);
+
   return {
     title: {
       absolute: fullTitle,
@@ -31,27 +41,27 @@ export function createPageMetadata(
     keywords: options?.keywords,
     openGraph: {
       title: fullTitle,
-      description: options?.description || "void2610の公式ホームページ。これまでの制作物を紹介しています。",
+      description,
       type: "website",
       locale: "ja_JP",
-      url: "https://www.void2610.dev",
-      siteName: "void2610.dev",
+      url: SITE_URL,
+      siteName: SITE_NAME,
       images: [
         {
-          url: "https://www.void2610.dev/images/ogp-image.png",
-          width: 1200,
-          height: 630,
-          alt: "void2610",
+          url: ogpImageUrl,
+          width: DEFAULT_OGP_IMAGE.width,
+          height: DEFAULT_OGP_IMAGE.height,
+          alt: DEFAULT_OGP_IMAGE.alt,
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      site: "@void2610",
-      creator: "@void2610",
+      site: X_HANDLE,
+      creator: X_HANDLE,
       title: fullTitle,
-      description: options?.description || "void2610の公式ホームページ。これまでの制作物を紹介しています。",
-      images: ["https://www.void2610.dev/images/ogp-image.png"],
+      description,
+      images: [ogpImageUrl],
     },
   };
 }
