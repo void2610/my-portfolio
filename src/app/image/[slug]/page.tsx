@@ -7,7 +7,7 @@ import { ExternalLink } from "lucide-react";
 import { ogpImages, getOgpImageBySlug } from "@/data/ogpImages";
 import DiscordComponentEmbed from "@/components/DiscordComponentEmbed";
 import { createOgpImageEmbed } from "@/data/discordEmbeds";
-import { SITE_NAME, absoluteUrl } from "@/config/site";
+import { SITE_NAME, X_HANDLE, absoluteUrl } from "@/config/site";
 
 type Params = { slug: string };
 
@@ -57,8 +57,8 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      site: "@void2610",
-      creator: "@void2610",
+      site: X_HANDLE,
+      creator: X_HANDLE,
       title: data.title,
       description: data.description,
       images: [imageUrl],

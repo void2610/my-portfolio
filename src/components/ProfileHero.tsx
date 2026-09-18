@@ -8,6 +8,12 @@ import SocialLinks from "./SocialLinks";
 import GradientText from "./GradientText";
 import { scaleIn, hoverScale, DURATION, DELAY, EASING } from "@/config/animations";
 import { useHaptics } from "@/hooks/useHaptics";
+import {
+  AVATAR_IMAGE_PATH,
+  SITE_AUTHOR,
+  SITE_AUTHOR_ALT,
+  SITE_TAGLINE,
+} from "@/config/site";
 
 interface ProfileHeroProps {
   showDescription?: boolean;
@@ -20,8 +26,8 @@ export default function ProfileHero({ showDescription = true, isClickable = fals
     <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden bg-gradient-to-br from-blue-500 to-purple-600 p-0.5">
       <div className="w-full h-full rounded-full bg-surface overflow-hidden relative">
         <Image 
-          src="/images/void2610.png" 
-          alt="void2610 avatar"
+          src={AVATAR_IMAGE_PATH}
+          alt={`${SITE_AUTHOR} avatar`}
           fill
           className="object-cover"
           sizes="(max-width: 768px) 192px, 256px"
@@ -136,14 +142,14 @@ export default function ProfileHero({ showDescription = true, isClickable = fals
       >
         <div className="mb-4">
           <GradientText as="h1" size="2xl">
-            void2610
+            {SITE_AUTHOR}
           </GradientText>
           <p className="text-lg text-tertiary mt-2">
-            Shuya IZUMI
+            {SITE_AUTHOR_ALT}
           </p>
         </div>
         <p className="text-xl text-secondary mb-6">
-          ゲームクリエイター / ソフトウェアエンジニア
+          {SITE_TAGLINE}
         </p>
         {showDescription && (
           <p className="text-lg text-secondary leading-relaxed mb-6">

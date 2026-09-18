@@ -1,10 +1,29 @@
 // サイト全体で共有する基本情報
+//
+// メタデータ・構造化データ・Discordのリンクプレビュー・UI表示で
+// 同じ値を使い回すため、ここを唯一の定義箇所とする。
 
 export const SITE_URL = "https://www.void2610.dev";
 export const SITE_NAME = "void2610.dev";
 export const SITE_DESCRIPTION =
   "void2610の公式ホームページ。これまでの制作物を紹介しています。";
 export const SITE_TAGLINE = "ゲームクリエイター / ソフトウェアエンジニア";
+
+export const SITE_AUTHOR = "void2610";
+export const SITE_AUTHOR_ALT = "Shuya IZUMI";
+/** X (Twitter) のハンドル。twitter:site / twitter:creator に使う */
+export const X_HANDLE = "@void2610";
+
+/** プロフィール画像 */
+export const AVATAR_IMAGE_PATH = "/images/void2610.png";
+
+/** OGPのデフォルト画像。Discordは幅高さが無いと実測しにいくため必ず指定する */
+export const DEFAULT_OGP_IMAGE = {
+  path: "/images/ogp-image.png",
+  width: 1200,
+  height: 630,
+  alt: SITE_AUTHOR,
+} as const;
 
 /**
  * ブランドアクセントカラー

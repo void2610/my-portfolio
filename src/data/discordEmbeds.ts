@@ -4,11 +4,14 @@
 // 組み立て方の制約は src/utils/discordComponentEmbed.ts のコメントを参照。
 
 import {
+  AVATAR_IMAGE_PATH,
   BRAND_ACCENT_INT,
+  SITE_AUTHOR,
   SITE_TAGLINE,
   SITE_URL,
   absoluteUrl,
 } from "@/config/site";
+import { socialLinks } from "@/config/navigation";
 import { projects, type Platform, type Project } from "@/data/projects";
 import type { OgpImageData } from "@/data/ogpImages";
 import { formatDateShort } from "@/utils/date";
@@ -25,9 +28,8 @@ import {
   type DiscordMediaGalleryItem,
 } from "@/utils/discordComponentEmbed";
 
-const AVATAR_URL = absoluteUrl("/images/void2610.png");
-const GITHUB_URL = "https://github.com/void2610";
-const X_URL = "https://twitter.com/void2610";
+const AVATAR_URL = absoluteUrl(AVATAR_IMAGE_PATH);
+const AVATAR_ALT = `${SITE_AUTHOR} のアイコン`;
 
 const platformLabel: Record<Platform, string> = {
   github: "GitHub",
@@ -65,10 +67,10 @@ function projectListMarkdown(items: Project[]): string {
     .join("\n");
 }
 
-const socialButtons = [
-  linkButton(GITHUB_URL, "GitHub"),
-  linkButton(X_URL, "X (Twitter)"),
-];
+/** ヘッダー等と同じSNSリンクからボタンを作る */
+const socialButtons = socialLinks.map((link) =>
+  linkButton(link.href, link.label)
+);
 
 /** トップページ: プロフィール + 注目作品のギャラリー */
 export function createHomeEmbed(): DiscordComponentEmbedPayload {
@@ -79,10 +81,10 @@ export function createHomeEmbed(): DiscordComponentEmbedPayload {
       section(
         [
           textDisplay(
-            `# [void2610](${SITE_URL})\n${SITE_TAGLINE}\n-# 個人・チームで制作したゲームやツールを公開しています`
+            `# [${SITE_AUTHOR}](${SITE_URL})\n${SITE_TAGLINE}\n-# 個人・チームで制作したゲームやツールを公開しています`
           ),
         ],
-        thumbnail(AVATAR_URL, "void2610 のアイコン")
+        thumbnail(AVATAR_URL, AVATAR_ALT)
       ),
       separator(true, 1),
       textDisplay("**Featured Projects**"),
@@ -131,12 +133,12 @@ export function createAboutEmbed(): DiscordComponentEmbedPayload {
       section(
         [
           textDisplay(
-            `# [About void2610](${absoluteUrl(
+            `# [About ${SITE_AUTHOR}](${absoluteUrl(
               "/about"
             )})\n${SITE_TAGLINE}\nUnity製のゲームを中心に、Webアプリやツールも制作しています。`
           ),
         ],
-        thumbnail(AVATAR_URL, "void2610 のアイコン")
+        thumbnail(AVATAR_URL, AVATAR_ALT)
       ),
       separator(true, 1),
       textDisplay(
@@ -164,7 +166,7 @@ export function createContactEmbed(): DiscordComponentEmbedPayload {
             )})\nお仕事のご依頼やご質問はお気軽にどうぞ。\n-# X・GitHub・メールで受け付けています`
           ),
         ],
-        thumbnail(AVATAR_URL, "void2610 のアイコン")
+        thumbnail(AVATAR_URL, AVATAR_ALT)
       ),
       separator(true, 1),
       actionRow([

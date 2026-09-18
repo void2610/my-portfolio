@@ -7,10 +7,21 @@ import Footer from "@/components/Footer";
 import { HeroUIProvider } from "@/components/providers";
 import { Analytics } from "@vercel/analytics/next";
 import {
+  AVATAR_IMAGE_PATH,
   BRAND_ACCENT_HEX,
   BROWSER_THEME_COLOR_DARK,
   BROWSER_THEME_COLOR_LIGHT,
+  DEFAULT_OGP_IMAGE,
+  SITE_AUTHOR,
+  SITE_AUTHOR_ALT,
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_TAGLINE,
+  SITE_URL,
+  X_HANDLE,
+  absoluteUrl,
 } from "@/config/site";
+import { socialLinks } from "@/config/navigation";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,16 +50,18 @@ export const viewport: Viewport = {
   ],
 };
 
+const ogpImageUrl = absoluteUrl(DEFAULT_OGP_IMAGE.path);
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.void2610.dev'),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "void2610.dev",
-    template: "%s | void2610.dev",
+    default: SITE_NAME,
+    template: `%s | ${SITE_NAME}`,
   },
-  description: "void2610の公式ホームページ。これまでの制作物を紹介しています。",
+  description: SITE_DESCRIPTION,
   keywords: ["ゲーム開発", "ポートフォリオ", "Unity", "C#", "インディーゲーム", "Indie Game", "Game Development", "void2610"],
-  authors: [{ name: "void2610" }],
-  creator: "void2610",
+  authors: [{ name: SITE_AUTHOR }],
+  creator: SITE_AUTHOR,
   icons: {
     icon: [
       { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
@@ -66,26 +79,26 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "ja_JP",
-    url: "https://www.void2610.dev",
-    siteName: "void2610.dev",
-    title: "void2610.dev",
-    description: "void2610の公式ホームページ。これまでの制作物を紹介しています。",
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
     images: [
       {
-        url: "https://www.void2610.dev/images/ogp-image.png",
-        width: 1200,
-        height: 630,
-        alt: "void2610",
+        url: ogpImageUrl,
+        width: DEFAULT_OGP_IMAGE.width,
+        height: DEFAULT_OGP_IMAGE.height,
+        alt: DEFAULT_OGP_IMAGE.alt,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    site: "@void2610",
-    creator: "@void2610",
-    title: "void2610.dev",
-    description: "void2610の公式ホームページ。これまでの制作物を紹介しています。",
-    images: ["https://www.void2610.dev/images/ogp-image.png"],
+    site: X_HANDLE,
+    creator: X_HANDLE,
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
+    images: [ogpImageUrl],
   },
   robots: {
     index: true,
@@ -105,16 +118,15 @@ export default function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: "void2610",
-    alternateName: "Shuya IZUMI",
-    url: "https://www.void2610.dev",
-    image: "https://www.void2610.dev/images/void2610.png",
-    description: "ゲームクリエイター / ソフトウェアエンジニア",
+    name: SITE_AUTHOR,
+    alternateName: SITE_AUTHOR_ALT,
+    url: SITE_URL,
+    image: absoluteUrl(AVATAR_IMAGE_PATH),
+    description: SITE_TAGLINE,
     jobTitle: "Game Creator / Software Engineer",
     sameAs: [
-      "https://twitter.com/void2610",
-      "https://github.com/void2610",
-      "https://steamcommunity.com/id/void2610/"
+      ...socialLinks.map((link) => link.href),
+      "https://steamcommunity.com/id/void2610/",
     ],
     knowsAbout: ["ゲーム開発", "Unity", "C#", "Web開発", "React", "TypeScript"],
   };
