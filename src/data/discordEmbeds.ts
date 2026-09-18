@@ -46,8 +46,9 @@ function featuredProjects(limit: number): Project[] {
     .slice(0, limit);
 }
 
-// Discord はページ本体と全画像の取得を10秒以内に終える必要があるため、
-// ギャラリーに並べる画像は数・サイズともに控えめにしておく
+// Discord はページ本体と全画像の取得を10秒以内に終える必要がある。
+// 画像は WebP 化済みで1枚あたり数十〜250KB程度だが、枚数を増やす際は
+// 合計サイズに注意する（Media Gallery の上限は10枚）
 function toGalleryItem(project: Project): DiscordMediaGalleryItem {
   return {
     media: { url: absoluteUrl(project.imageUrl!) },
@@ -74,7 +75,7 @@ const socialButtons = socialLinks.map((link) =>
 
 /** トップページ: プロフィール + 注目作品のギャラリー */
 export function createHomeEmbed(): DiscordComponentEmbedPayload {
-  const highlights = featuredProjects(3);
+  const highlights = featuredProjects(4);
 
   return componentEmbed(
     [
@@ -103,7 +104,7 @@ export function createHomeEmbed(): DiscordComponentEmbedPayload {
 
 /** Projects ページ: 注目作品4件のギャラリーと一覧 */
 export function createProjectsEmbed(): DiscordComponentEmbedPayload {
-  const highlights = featuredProjects(4);
+  const highlights = featuredProjects(6);
 
   return componentEmbed(
     [

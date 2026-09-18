@@ -4,7 +4,7 @@ export interface OgpImageData {
   slug: string; // URLスラッグ (例: "maouchan", "arenani_1")
   title: string; // ゲームタイトル
   description: string; // 説明文
-  imagePath: string; // 画像パス (例: "/images/maouchan.png")
+  imagePath: string; // 画像パス (例: "/images/maouchan.webp")
   imageWidth: number; // 画像の実寸（幅）
   imageHeight: number; // 画像の実寸（高さ）
   gameUrl: string; // ゲームへのリンク (unityroom, Steam等)
@@ -19,7 +19,7 @@ export const ogpImages: OgpImageData[] = [
     slug: "Grandider",
     title: "凋落のグランディディエ",
     description: "凋落のグランディディエ",
-    imagePath: "/images/grandidier.png",
+    imagePath: "/images/grandidier.webp",
     imageWidth: 1920,
     imageHeight: 1080,
     gameUrl: "https://unityroom.com/games/grandidier",
@@ -28,7 +28,7 @@ export const ogpImages: OgpImageData[] = [
     slug: "maouchan",
     title: "がんばれ！まおうちゃん！",
     description: "がんばれ！まおうちゃん！ - unityroomで無料公開中のゲーム",
-    imagePath: "/images/maouchan.png",
+    imagePath: "/images/maouchan.webp",
     imageWidth: 600,
     imageHeight: 600,
     gameUrl: "https://unityroom.com/games/maouchan",
@@ -37,7 +37,7 @@ export const ogpImages: OgpImageData[] = [
     slug: "arenani",
     title: "あれ？何を買いにきたんだっけ？",
     description: "あれ？何を買いにきたんだっけ？ - unityroomで無料公開中のゲーム",
-    imagePath: "/images/arenani.png",
+    imagePath: "/images/arenani.webp",
     imageWidth: 1304,
     imageHeight: 851,
     gameUrl: "https://unityroom.com/games/arenani",
