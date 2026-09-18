@@ -16,6 +16,7 @@ import { projects, type Platform, type Project } from "@/data/projects";
 import type { OgpImageData } from "@/data/ogpImages";
 import { formatDateShort } from "@/utils/date";
 import {
+  DISCORD_EMBED_LIMITS,
   actionRow,
   componentEmbed,
   linkButton,
@@ -102,9 +103,10 @@ export function createHomeEmbed(): DiscordComponentEmbedPayload {
   );
 }
 
-/** Projects ページ: 注目作品4件のギャラリーと一覧 */
+/** Projects ページ: 注目作品のギャラリーと一覧 */
 export function createProjectsEmbed(): DiscordComponentEmbedPayload {
-  const highlights = featuredProjects(6);
+  // Media Gallery の上限いっぱいまで並べて、注目作品を全件見せる
+  const highlights = featuredProjects(DISCORD_EMBED_LIMITS.MAX_GALLERY_ITEMS);
 
   return componentEmbed(
     [
