@@ -15,7 +15,7 @@ export const projects: Project[] = [
   {
     title: "カラーリコレクション",
     description:
-      "「その色は、誰かの記憶でできている。」修正依頼に出された自動人形たちと対話し、彼らの運命を決める近未来ヒューマンドラマADV。サークル「Pico2☆ミ」制作、Steamにてウィッシュリスト登録受付中。",
+      "修正依頼に出された自動人形たちと対話し、彼らの運命を決める近未来ヒューマンドラマADV。サークル「Pico2☆ミ」制作、Steamにてウィッシュリスト登録受付中。",
     platform: "steam",
     tags: ["Unity", "C#", "Pico2☆ミ"],
     url: "https://store.steampowered.com/app/4848670/",
