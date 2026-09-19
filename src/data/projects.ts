@@ -18,10 +18,20 @@ export const projects: Project[] = [
       "修正依頼に出された自動人形たちと対話し、彼らの運命を決める近未来ヒューマンドラマADV。サークル「Pico2☆ミ」制作、Steamにてウィッシュリスト登録受付中。",
     platform: "steam",
     tags: ["Unity", "C#", "Pico2☆ミ"],
-    url: "https://store.steampowered.com/app/4848670/",
+    url: "https://color-recollection.void2610.dev/",
     publishedDate: "2026-08-19",
     imageUrl: "/images/projects/color-recollection.webp",
     featured: true,
+  },
+  {
+    title: "カラーリコレクション 公式サイト",
+    description:
+      "ノベルゲーム「カラーリコレクション」の公式サイト。ストーリー・登場人物・クリエイター紹介・最新情報を掲載",
+    platform: "github",
+    tags: ["TypeScript", "Next.js"],
+    url: "https://github.com/void2610/color-recollection-promotion-page",
+    publishedDate: "2026-08-15",
+    imageUrl: "/images/projects/color-recollection-site.webp",
   },
   {
     title: "凋落のグランディディエ",
