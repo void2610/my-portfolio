@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import VisitorCounter from "./VisitorCounter";
 
 export default function Footer() {
@@ -12,6 +13,9 @@ export default function Footer() {
           <p className="text-text-secondary text-sm">
             © {currentYear} void2610. All rights reserved.
           </p>
+          <Link href="/privacy" className="text-secondary text-sm hover:underline">
+            Privacy Policy
+          </Link>
           <VisitorCounter />
         </div>
       </div>
