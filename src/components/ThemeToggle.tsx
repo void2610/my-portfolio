@@ -3,17 +3,16 @@
 import { Button } from "@heroui/react";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { useHaptics } from "@/hooks/useHaptics";
 
+const subscribeNothing = () => () => {};
+
 export default function ThemeToggle() {
-  const [mounted, setMounted] = useState(false);
+  // サーバー描画とハイドレーション中は false、クライアントで描画し直すと true になる
+  const mounted = useSyncExternalStore(subscribeNothing, () => true, () => false);
   const { theme, setTheme } = useTheme();
   const { trigger } = useHaptics();
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   if (!mounted) {
     return (
