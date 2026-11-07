@@ -15,8 +15,10 @@ const sections = [
   {
     heading: "Google アカウントと連携するツール",
     body: [
-      "void2610 が個人の作業のために使うツール (rclone による Google ドライブの同期) は、Google アカウントの認可を受けて Google ドライブのファイルを読み取ります。",
-      "取得したデータは、認可した本人の端末に保存されるだけで、void2610 のサーバーや第三者へ送信・共有・販売することはありません。",
+      "void2610 と開発チームが制作に使う次のツールは、Google アカウントの認可を受けて Google のデータにアクセスします。",
+      "rclone による Google ドライブの同期: 共有フォルダのファイルを読み取り、指定したフォルダへファイルをアップロードします。",
+      "Unity エディタのローカライズ連携: ゲームの翻訳テキストを管理する Google スプレッドシートを読み書きします。",
+      "取得したデータは、認可した本人の端末と、そのツールが読み書きする Google ドライブ・スプレッドシートの中にだけ置かれ、void2610 のサーバーや第三者へ送信・共有・販売することはありません。",
       "Google API から受け取った情報の利用と他アプリへの転送は、Google API Services User Data Policy (Limited Use の要件を含む) に従います。",
       "連携は Google アカウントの「サードパーティ製のアプリとサービス」からいつでも解除できます。",
     ],
@@ -59,7 +61,7 @@ export default function Privacy() {
             </div>
           </section>
         ))}
-        <p className="text-muted text-sm">制定日: 2026年11月7日</p>
+        <p className="text-muted text-sm">最終更新日: 2026年11月7日</p>
       </motion.div>
     </div>
   );
